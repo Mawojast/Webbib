@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\DashboardController::position
-* @see app/Http/Controllers/DashboardController.php:123
+* @see app/Http/Controllers/DashboardController.php:121
 * @route '/dashboard/{dashboard}/position'
 */
 export const position = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -16,7 +16,7 @@ position.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::position
-* @see app/Http/Controllers/DashboardController.php:123
+* @see app/Http/Controllers/DashboardController.php:121
 * @route '/dashboard/{dashboard}/position'
 */
 position.url = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -50,7 +50,7 @@ position.url = (args: { dashboard: number | { id: number } } | [dashboard: numbe
 
 /**
 * @see \App\Http\Controllers\DashboardController::position
-* @see app/Http/Controllers/DashboardController.php:123
+* @see app/Http/Controllers/DashboardController.php:121
 * @route '/dashboard/{dashboard}/position'
 */
 position.put = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -60,7 +60,7 @@ position.put = (args: { dashboard: number | { id: number } } | [dashboard: numbe
 
 /**
 * @see \App\Http\Controllers\DashboardController::position
-* @see app/Http/Controllers/DashboardController.php:123
+* @see app/Http/Controllers/DashboardController.php:121
 * @route '/dashboard/{dashboard}/position'
 */
 position.patch = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -70,7 +70,7 @@ position.patch = (args: { dashboard: number | { id: number } } | [dashboard: num
 
 /**
 * @see \App\Http\Controllers\DashboardController::position
-* @see app/Http/Controllers/DashboardController.php:123
+* @see app/Http/Controllers/DashboardController.php:121
 * @route '/dashboard/{dashboard}/position'
 */
 const positionForm = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -85,7 +85,7 @@ const positionForm = (args: { dashboard: number | { id: number } } | [dashboard:
 
 /**
 * @see \App\Http\Controllers\DashboardController::position
-* @see app/Http/Controllers/DashboardController.php:123
+* @see app/Http/Controllers/DashboardController.php:121
 * @route '/dashboard/{dashboard}/position'
 */
 positionForm.put = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -100,7 +100,7 @@ positionForm.put = (args: { dashboard: number | { id: number } } | [dashboard: n
 
 /**
 * @see \App\Http\Controllers\DashboardController::position
-* @see app/Http/Controllers/DashboardController.php:123
+* @see app/Http/Controllers/DashboardController.php:121
 * @route '/dashboard/{dashboard}/position'
 */
 positionForm.patch = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
