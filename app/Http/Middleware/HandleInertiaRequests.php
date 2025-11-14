@@ -45,7 +45,7 @@ class HandleInertiaRequests extends Middleware
             'quote' => ['message' => trim($message), 'author' => trim($author)],
             'auth' => [
                 'user' => $request->user(),
-                'profileImage' => '/profile_image/'.$request->user()?->image,
+                'profileImage' => $request->user()?->getImageUrl(),
                 'sidebarFolders' => $request->user()?->sidebarFolders->except('user_id', 'pivot'),
                 'userpage' => [
                     'can' => [

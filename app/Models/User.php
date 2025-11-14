@@ -113,4 +113,17 @@ class User extends Authenticatable
             get: fn(): int => $this->dashboards->count()
         );
     }
+
+    /**
+     * Returns url of user image with cloud s3 service
+     * If user image does not exist, return default user image path
+     */
+    public function getImageUrl(): string
+    {
+        if (Storage::disk('s3')->exists($this->image)){
+            return Storage::url($this->image);
+        }
+
+        return env('DEFAULT_PROFILE_IMAGE_PATH');
+    }
 }

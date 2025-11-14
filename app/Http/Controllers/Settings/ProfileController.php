@@ -36,8 +36,9 @@ class ProfileController extends Controller
         $user = User::findOrFail(Auth::id());
         return Inertia::render('settings/ProfileImage', [
             'user' => $user->only('name', 'image', 'email'),
-            'profileImage' => '/profile_image/'.$user->image,
+            'profileImage' => $user->getImageUrl(),
         ]);
+
     }
 
     /**
@@ -49,17 +50,25 @@ class ProfileController extends Controller
 
         if ($request->hasFile('image')) {
 
-            if ($user->image !== 'default_profile_image.png' && file_exists($user->image)) {
-                unlink(public_path('profile_image/' . $user->image));
-            }
+            Storage::disk('s3')->delete( $user->image );
 
             $file = $request->file('image');
-            $filename = bin2hex(random_bytes(16)) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('profile_image'), $filename);
+            $filename = $file->hashName();
 
-            $user->image = $filename;
+            $path = Storage::disk('s3')->putFileAs(
+                '',
+                $file,
+                $filename,
+                'public'
+            );
+
+            $user->image = $path;
             $user->save();
         }
+
+        return redirect()->route('profile.image.edit');
+
+
     }
 
     /**
@@ -82,14 +91,13 @@ class ProfileController extends Controller
     {
         $user = $request->user();
 
-        if ($user->image !== 'default_profile_image.png' && file_exists($user->image)) {
-            unlink(public_path('profile_image/' . $user->image));
-        }
-
-        $user->image = 'default_profile_image.png';
+        Storage::disk('s3')->delete( $user->image );
+        $user->image = env('DEFAULT_PROFILE_IMAGE_NAME');
         $user->save();
 
+
         return redirect()->route('profile.image.edit');
+
     }
 
     /**
@@ -105,6 +113,7 @@ class ProfileController extends Controller
 
         Auth::logout();
 
+        Storage::disk('s3')->delete($user->image);
         $user->delete();
 
         $request->session()->invalidate();

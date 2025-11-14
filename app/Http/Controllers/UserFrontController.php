@@ -34,7 +34,7 @@ class UserFrontController extends Controller
                 ->whereNull('parent_id')
                 ->where('public', true)
                 ->get()->map->only(['id', 'name', 'public']),
-            'profileImage' => '/profile_image/'.$user->image
+            'profileImage' => $user->getImageUrl(),
         ]);
     }
 
