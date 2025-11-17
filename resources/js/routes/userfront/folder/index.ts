@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:41
+* @see app/Http/Controllers/UserFrontController.php:44
 * @route '/{user}/topic/{folder}'
 */
 export const index = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:41
+* @see app/Http/Controllers/UserFrontController.php:44
 * @route '/{user}/topic/{folder}'
 */
 index.url = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -48,7 +48,7 @@ index.url = (args: { user: string | { name: string }, folder: number | { id: num
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:41
+* @see app/Http/Controllers/UserFrontController.php:44
 * @route '/{user}/topic/{folder}'
 */
 index.get = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,7 +58,7 @@ index.get = (args: { user: string | { name: string }, folder: number | { id: num
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:41
+* @see app/Http/Controllers/UserFrontController.php:44
 * @route '/{user}/topic/{folder}'
 */
 index.head = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,7 +68,7 @@ index.head = (args: { user: string | { name: string }, folder: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:41
+* @see app/Http/Controllers/UserFrontController.php:44
 * @route '/{user}/topic/{folder}'
 */
 const indexForm = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,7 +78,7 @@ const indexForm = (args: { user: string | { name: string }, folder: number | { i
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:41
+* @see app/Http/Controllers/UserFrontController.php:44
 * @route '/{user}/topic/{folder}'
 */
 indexForm.get = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -88,7 +88,7 @@ indexForm.get = (args: { user: string | { name: string }, folder: number | { id:
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:41
+* @see app/Http/Controllers/UserFrontController.php:44
 * @route '/{user}/topic/{folder}'
 */
 indexForm.head = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

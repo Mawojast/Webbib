@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\UserFrontController::position
-* @see app/Http/Controllers/UserFrontController.php:129
+* @see app/Http/Controllers/UserFrontController.php:132
 * @route '/{user}/{userFront}/position'
 */
 export const position = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -16,7 +16,7 @@ position.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::position
-* @see app/Http/Controllers/UserFrontController.php:129
+* @see app/Http/Controllers/UserFrontController.php:132
 * @route '/{user}/{userFront}/position'
 */
 position.url = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -48,7 +48,7 @@ position.url = (args: { user: string | { name: string }, userFront: number | { i
 
 /**
 * @see \App\Http\Controllers\UserFrontController::position
-* @see app/Http/Controllers/UserFrontController.php:129
+* @see app/Http/Controllers/UserFrontController.php:132
 * @route '/{user}/{userFront}/position'
 */
 position.put = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -58,7 +58,7 @@ position.put = (args: { user: string | { name: string }, userFront: number | { i
 
 /**
 * @see \App\Http\Controllers\UserFrontController::position
-* @see app/Http/Controllers/UserFrontController.php:129
+* @see app/Http/Controllers/UserFrontController.php:132
 * @route '/{user}/{userFront}/position'
 */
 position.patch = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -68,7 +68,7 @@ position.patch = (args: { user: string | { name: string }, userFront: number | {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::position
-* @see app/Http/Controllers/UserFrontController.php:129
+* @see app/Http/Controllers/UserFrontController.php:132
 * @route '/{user}/{userFront}/position'
 */
 const positionForm = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -83,7 +83,7 @@ const positionForm = (args: { user: string | { name: string }, userFront: number
 
 /**
 * @see \App\Http\Controllers\UserFrontController::position
-* @see app/Http/Controllers/UserFrontController.php:129
+* @see app/Http/Controllers/UserFrontController.php:132
 * @route '/{user}/{userFront}/position'
 */
 positionForm.put = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -98,7 +98,7 @@ positionForm.put = (args: { user: string | { name: string }, userFront: number |
 
 /**
 * @see \App\Http\Controllers\UserFrontController::position
-* @see app/Http/Controllers/UserFrontController.php:129
+* @see app/Http/Controllers/UserFrontController.php:132
 * @route '/{user}/{userFront}/position'
 */
 positionForm.patch = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
