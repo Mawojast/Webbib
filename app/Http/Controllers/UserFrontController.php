@@ -12,7 +12,6 @@ use App\Http\Requests\UserFront\StoreUserFrontRequest;
 use App\Http\Requests\UserFront\UpdateUserFrontRequest;
 use App\Http\Requests\UserFront\UpdatePositionUserFrontRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
@@ -23,7 +22,7 @@ class UserFrontController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(User $user, Request $request): Response
+    public function index(User $user): Response
     {
         return Inertia::render('userFront/index', [
             'username' => $user->name,
@@ -36,8 +35,6 @@ class UserFrontController extends Controller
                 ->where('public', true)
                 ->get()->map->only(['id', 'name', 'public']),
             'profileImage' => $user->getImageUrl(),
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => $request->session()->get('status'),
         ]);
     }
 

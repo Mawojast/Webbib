@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:26
+* @see app/Http/Controllers/UserFrontController.php:25
 * @route '/{user}'
 */
 export const index = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:26
+* @see app/Http/Controllers/UserFrontController.php:25
 * @route '/{user}'
 */
 index.url = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions) => {
@@ -50,7 +50,7 @@ index.url = (args: { user: string | { name: string } } | [user: string | { name:
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:26
+* @see app/Http/Controllers/UserFrontController.php:25
 * @route '/{user}'
 */
 index.get = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -60,7 +60,7 @@ index.get = (args: { user: string | { name: string } } | [user: string | { name:
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:26
+* @see app/Http/Controllers/UserFrontController.php:25
 * @route '/{user}'
 */
 index.head = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -70,7 +70,7 @@ index.head = (args: { user: string | { name: string } } | [user: string | { name
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:26
+* @see app/Http/Controllers/UserFrontController.php:25
 * @route '/{user}'
 */
 const indexForm = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -80,7 +80,7 @@ const indexForm = (args: { user: string | { name: string } } | [user: string | {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:26
+* @see app/Http/Controllers/UserFrontController.php:25
 * @route '/{user}'
 */
 indexForm.get = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -90,7 +90,7 @@ indexForm.get = (args: { user: string | { name: string } } | [user: string | { n
 
 /**
 * @see \App\Http\Controllers\UserFrontController::index
-* @see app/Http/Controllers/UserFrontController.php:26
+* @see app/Http/Controllers/UserFrontController.php:25
 * @route '/{user}'
 */
 indexForm.head = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -107,7 +107,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\UserFrontController::indexFolder
-* @see app/Http/Controllers/UserFrontController.php:44
+* @see app/Http/Controllers/UserFrontController.php:41
 * @route '/{user}/topic/{folder}'
 */
 export const indexFolder = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -122,7 +122,7 @@ indexFolder.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::indexFolder
-* @see app/Http/Controllers/UserFrontController.php:44
+* @see app/Http/Controllers/UserFrontController.php:41
 * @route '/{user}/topic/{folder}'
 */
 indexFolder.url = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -154,7 +154,7 @@ indexFolder.url = (args: { user: string | { name: string }, folder: number | { i
 
 /**
 * @see \App\Http\Controllers\UserFrontController::indexFolder
-* @see app/Http/Controllers/UserFrontController.php:44
+* @see app/Http/Controllers/UserFrontController.php:41
 * @route '/{user}/topic/{folder}'
 */
 indexFolder.get = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -164,7 +164,7 @@ indexFolder.get = (args: { user: string | { name: string }, folder: number | { i
 
 /**
 * @see \App\Http\Controllers\UserFrontController::indexFolder
-* @see app/Http/Controllers/UserFrontController.php:44
+* @see app/Http/Controllers/UserFrontController.php:41
 * @route '/{user}/topic/{folder}'
 */
 indexFolder.head = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -174,7 +174,7 @@ indexFolder.head = (args: { user: string | { name: string }, folder: number | { 
 
 /**
 * @see \App\Http\Controllers\UserFrontController::indexFolder
-* @see app/Http/Controllers/UserFrontController.php:44
+* @see app/Http/Controllers/UserFrontController.php:41
 * @route '/{user}/topic/{folder}'
 */
 const indexFolderForm = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -184,7 +184,7 @@ const indexFolderForm = (args: { user: string | { name: string }, folder: number
 
 /**
 * @see \App\Http\Controllers\UserFrontController::indexFolder
-* @see app/Http/Controllers/UserFrontController.php:44
+* @see app/Http/Controllers/UserFrontController.php:41
 * @route '/{user}/topic/{folder}'
 */
 indexFolderForm.get = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -194,7 +194,7 @@ indexFolderForm.get = (args: { user: string | { name: string }, folder: number |
 
 /**
 * @see \App\Http\Controllers\UserFrontController::indexFolder
-* @see app/Http/Controllers/UserFrontController.php:44
+* @see app/Http/Controllers/UserFrontController.php:41
 * @route '/{user}/topic/{folder}'
 */
 indexFolderForm.head = (args: { user: string | { name: string }, folder: number | { id: number } } | [user: string | { name: string }, folder: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -211,7 +211,7 @@ indexFolder.form = indexFolderForm
 
 /**
 * @see \App\Http\Controllers\UserFrontController::create
-* @see app/Http/Controllers/UserFrontController.php:68
+* @see app/Http/Controllers/UserFrontController.php:65
 * @route '/{user}/create'
 */
 export const create = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -226,7 +226,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::create
-* @see app/Http/Controllers/UserFrontController.php:68
+* @see app/Http/Controllers/UserFrontController.php:65
 * @route '/{user}/create'
 */
 create.url = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ create.url = (args: { user: string | { name: string } } | [user: string | { name
 
 /**
 * @see \App\Http\Controllers\UserFrontController::create
-* @see app/Http/Controllers/UserFrontController.php:68
+* @see app/Http/Controllers/UserFrontController.php:65
 * @route '/{user}/create'
 */
 create.get = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -270,7 +270,7 @@ create.get = (args: { user: string | { name: string } } | [user: string | { name
 
 /**
 * @see \App\Http\Controllers\UserFrontController::create
-* @see app/Http/Controllers/UserFrontController.php:68
+* @see app/Http/Controllers/UserFrontController.php:65
 * @route '/{user}/create'
 */
 create.head = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -280,7 +280,7 @@ create.head = (args: { user: string | { name: string } } | [user: string | { nam
 
 /**
 * @see \App\Http\Controllers\UserFrontController::create
-* @see app/Http/Controllers/UserFrontController.php:68
+* @see app/Http/Controllers/UserFrontController.php:65
 * @route '/{user}/create'
 */
 const createForm = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -290,7 +290,7 @@ const createForm = (args: { user: string | { name: string } } | [user: string | 
 
 /**
 * @see \App\Http\Controllers\UserFrontController::create
-* @see app/Http/Controllers/UserFrontController.php:68
+* @see app/Http/Controllers/UserFrontController.php:65
 * @route '/{user}/create'
 */
 createForm.get = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -300,7 +300,7 @@ createForm.get = (args: { user: string | { name: string } } | [user: string | { 
 
 /**
 * @see \App\Http\Controllers\UserFrontController::create
-* @see app/Http/Controllers/UserFrontController.php:68
+* @see app/Http/Controllers/UserFrontController.php:65
 * @route '/{user}/create'
 */
 createForm.head = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -317,7 +317,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\UserFrontController::edit
-* @see app/Http/Controllers/UserFrontController.php:111
+* @see app/Http/Controllers/UserFrontController.php:108
 * @route '/{user}/{userFront}/edit'
 */
 export const edit = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -332,7 +332,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::edit
-* @see app/Http/Controllers/UserFrontController.php:111
+* @see app/Http/Controllers/UserFrontController.php:108
 * @route '/{user}/{userFront}/edit'
 */
 edit.url = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -364,7 +364,7 @@ edit.url = (args: { user: string | { name: string }, userFront: number | { id: n
 
 /**
 * @see \App\Http\Controllers\UserFrontController::edit
-* @see app/Http/Controllers/UserFrontController.php:111
+* @see app/Http/Controllers/UserFrontController.php:108
 * @route '/{user}/{userFront}/edit'
 */
 edit.get = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -374,7 +374,7 @@ edit.get = (args: { user: string | { name: string }, userFront: number | { id: n
 
 /**
 * @see \App\Http\Controllers\UserFrontController::edit
-* @see app/Http/Controllers/UserFrontController.php:111
+* @see app/Http/Controllers/UserFrontController.php:108
 * @route '/{user}/{userFront}/edit'
 */
 edit.head = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -384,7 +384,7 @@ edit.head = (args: { user: string | { name: string }, userFront: number | { id: 
 
 /**
 * @see \App\Http\Controllers\UserFrontController::edit
-* @see app/Http/Controllers/UserFrontController.php:111
+* @see app/Http/Controllers/UserFrontController.php:108
 * @route '/{user}/{userFront}/edit'
 */
 const editForm = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -394,7 +394,7 @@ const editForm = (args: { user: string | { name: string }, userFront: number | {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::edit
-* @see app/Http/Controllers/UserFrontController.php:111
+* @see app/Http/Controllers/UserFrontController.php:108
 * @route '/{user}/{userFront}/edit'
 */
 editForm.get = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -404,7 +404,7 @@ editForm.get = (args: { user: string | { name: string }, userFront: number | { i
 
 /**
 * @see \App\Http\Controllers\UserFrontController::edit
-* @see app/Http/Controllers/UserFrontController.php:111
+* @see app/Http/Controllers/UserFrontController.php:108
 * @route '/{user}/{userFront}/edit'
 */
 editForm.head = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -421,7 +421,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\UserFrontController::store
-* @see app/Http/Controllers/UserFrontController.php:79
+* @see app/Http/Controllers/UserFrontController.php:76
 * @route '/{user}'
 */
 export const store = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -436,7 +436,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::store
-* @see app/Http/Controllers/UserFrontController.php:79
+* @see app/Http/Controllers/UserFrontController.php:76
 * @route '/{user}'
 */
 store.url = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions) => {
@@ -470,7 +470,7 @@ store.url = (args: { user: string | { name: string } } | [user: string | { name:
 
 /**
 * @see \App\Http\Controllers\UserFrontController::store
-* @see app/Http/Controllers/UserFrontController.php:79
+* @see app/Http/Controllers/UserFrontController.php:76
 * @route '/{user}'
 */
 store.post = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -480,7 +480,7 @@ store.post = (args: { user: string | { name: string } } | [user: string | { name
 
 /**
 * @see \App\Http\Controllers\UserFrontController::store
-* @see app/Http/Controllers/UserFrontController.php:79
+* @see app/Http/Controllers/UserFrontController.php:76
 * @route '/{user}'
 */
 const storeForm = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -490,7 +490,7 @@ const storeForm = (args: { user: string | { name: string } } | [user: string | {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::store
-* @see app/Http/Controllers/UserFrontController.php:79
+* @see app/Http/Controllers/UserFrontController.php:76
 * @route '/{user}'
 */
 storeForm.post = (args: { user: string | { name: string } } | [user: string | { name: string } ] | string | { name: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -502,7 +502,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\UserFrontController::destroy
-* @see app/Http/Controllers/UserFrontController.php:166
+* @see app/Http/Controllers/UserFrontController.php:163
 * @route '/{user}/{userFront}'
 */
 export const destroy = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -517,7 +517,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::destroy
-* @see app/Http/Controllers/UserFrontController.php:166
+* @see app/Http/Controllers/UserFrontController.php:163
 * @route '/{user}/{userFront}'
 */
 destroy.url = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -549,7 +549,7 @@ destroy.url = (args: { user: string | { name: string }, userFront: number | { id
 
 /**
 * @see \App\Http\Controllers\UserFrontController::destroy
-* @see app/Http/Controllers/UserFrontController.php:166
+* @see app/Http/Controllers/UserFrontController.php:163
 * @route '/{user}/{userFront}'
 */
 destroy.delete = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -559,7 +559,7 @@ destroy.delete = (args: { user: string | { name: string }, userFront: number | {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::destroy
-* @see app/Http/Controllers/UserFrontController.php:166
+* @see app/Http/Controllers/UserFrontController.php:163
 * @route '/{user}/{userFront}'
 */
 const destroyForm = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -574,7 +574,7 @@ const destroyForm = (args: { user: string | { name: string }, userFront: number 
 
 /**
 * @see \App\Http\Controllers\UserFrontController::destroy
-* @see app/Http/Controllers/UserFrontController.php:166
+* @see app/Http/Controllers/UserFrontController.php:163
 * @route '/{user}/{userFront}'
 */
 destroyForm.delete = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -591,7 +591,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\UserFrontController::update
-* @see app/Http/Controllers/UserFrontController.php:123
+* @see app/Http/Controllers/UserFrontController.php:120
 * @route '/{user}/{userFront}'
 */
 export const update = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -606,7 +606,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::update
-* @see app/Http/Controllers/UserFrontController.php:123
+* @see app/Http/Controllers/UserFrontController.php:120
 * @route '/{user}/{userFront}'
 */
 update.url = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -638,7 +638,7 @@ update.url = (args: { user: string | { name: string }, userFront: number | { id:
 
 /**
 * @see \App\Http\Controllers\UserFrontController::update
-* @see app/Http/Controllers/UserFrontController.php:123
+* @see app/Http/Controllers/UserFrontController.php:120
 * @route '/{user}/{userFront}'
 */
 update.put = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -648,7 +648,7 @@ update.put = (args: { user: string | { name: string }, userFront: number | { id:
 
 /**
 * @see \App\Http\Controllers\UserFrontController::update
-* @see app/Http/Controllers/UserFrontController.php:123
+* @see app/Http/Controllers/UserFrontController.php:120
 * @route '/{user}/{userFront}'
 */
 update.patch = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -658,7 +658,7 @@ update.patch = (args: { user: string | { name: string }, userFront: number | { i
 
 /**
 * @see \App\Http\Controllers\UserFrontController::update
-* @see app/Http/Controllers/UserFrontController.php:123
+* @see app/Http/Controllers/UserFrontController.php:120
 * @route '/{user}/{userFront}'
 */
 const updateForm = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -673,7 +673,7 @@ const updateForm = (args: { user: string | { name: string }, userFront: number |
 
 /**
 * @see \App\Http\Controllers\UserFrontController::update
-* @see app/Http/Controllers/UserFrontController.php:123
+* @see app/Http/Controllers/UserFrontController.php:120
 * @route '/{user}/{userFront}'
 */
 updateForm.put = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -688,7 +688,7 @@ updateForm.put = (args: { user: string | { name: string }, userFront: number | {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::update
-* @see app/Http/Controllers/UserFrontController.php:123
+* @see app/Http/Controllers/UserFrontController.php:120
 * @route '/{user}/{userFront}'
 */
 updateForm.patch = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -705,7 +705,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\UserFrontController::updatePosition
-* @see app/Http/Controllers/UserFrontController.php:132
+* @see app/Http/Controllers/UserFrontController.php:129
 * @route '/{user}/{userFront}/position'
 */
 export const updatePosition = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -720,7 +720,7 @@ updatePosition.definition = {
 
 /**
 * @see \App\Http\Controllers\UserFrontController::updatePosition
-* @see app/Http/Controllers/UserFrontController.php:132
+* @see app/Http/Controllers/UserFrontController.php:129
 * @route '/{user}/{userFront}/position'
 */
 updatePosition.url = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -752,7 +752,7 @@ updatePosition.url = (args: { user: string | { name: string }, userFront: number
 
 /**
 * @see \App\Http\Controllers\UserFrontController::updatePosition
-* @see app/Http/Controllers/UserFrontController.php:132
+* @see app/Http/Controllers/UserFrontController.php:129
 * @route '/{user}/{userFront}/position'
 */
 updatePosition.put = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -762,7 +762,7 @@ updatePosition.put = (args: { user: string | { name: string }, userFront: number
 
 /**
 * @see \App\Http\Controllers\UserFrontController::updatePosition
-* @see app/Http/Controllers/UserFrontController.php:132
+* @see app/Http/Controllers/UserFrontController.php:129
 * @route '/{user}/{userFront}/position'
 */
 updatePosition.patch = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -772,7 +772,7 @@ updatePosition.patch = (args: { user: string | { name: string }, userFront: numb
 
 /**
 * @see \App\Http\Controllers\UserFrontController::updatePosition
-* @see app/Http/Controllers/UserFrontController.php:132
+* @see app/Http/Controllers/UserFrontController.php:129
 * @route '/{user}/{userFront}/position'
 */
 const updatePositionForm = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -787,7 +787,7 @@ const updatePositionForm = (args: { user: string | { name: string }, userFront: 
 
 /**
 * @see \App\Http\Controllers\UserFrontController::updatePosition
-* @see app/Http/Controllers/UserFrontController.php:132
+* @see app/Http/Controllers/UserFrontController.php:129
 * @route '/{user}/{userFront}/position'
 */
 updatePositionForm.put = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -802,7 +802,7 @@ updatePositionForm.put = (args: { user: string | { name: string }, userFront: nu
 
 /**
 * @see \App\Http\Controllers\UserFrontController::updatePosition
-* @see app/Http/Controllers/UserFrontController.php:132
+* @see app/Http/Controllers/UserFrontController.php:129
 * @route '/{user}/{userFront}/position'
 */
 updatePositionForm.patch = (args: { user: string | { name: string }, userFront: number | { id: number } } | [user: string | { name: string }, userFront: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
