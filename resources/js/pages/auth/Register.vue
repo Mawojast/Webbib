@@ -32,7 +32,7 @@ import pol from '@/routes/pol';
         >
             <div class="grid gap-6">
                 <div class="grid gap-2">
-                    <Label for="name">Name</Label>
+                    <Label for="name">Username</Label>
                     <Input
                         id="name"
                         type="text"
@@ -41,9 +41,9 @@ import pol from '@/routes/pol';
                         :tabindex="1"
                         autocomplete="name"
                         name="name"
-                        placeholder="Full name"
+                        placeholder="Username"
                     />
-                    <InputError :message="errors.name" />
+                    <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.name" />
                 </div>
 
                 <div class="grid gap-2">
@@ -57,7 +57,7 @@ import pol from '@/routes/pol';
                         name="email"
                         placeholder="email@example.com"
                     />
-                    <InputError :message="errors.email" />
+                    <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.email" />
                 </div>
 
                 <div class="grid gap-2">
@@ -71,7 +71,7 @@ import pol from '@/routes/pol';
                         name="password"
                         placeholder="Password"
                     />
-                    <InputError :message="errors.password" />
+                    <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.password" />
                 </div>
 
                 <div class="grid gap-2">
@@ -85,7 +85,7 @@ import pol from '@/routes/pol';
                         name="password_confirmation"
                         placeholder="Confirm password"
                     />
-                    <InputError :message="errors.password_confirmation" />
+                    <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.password_confirmation" />
                 </div>
                 <div class="grid gap-2">
                     <p>By clicking "Create account" you agree to Webbib's <a target="_blank" class="text-orange-200" :href="pol.termsofservice().url">Terms of Service</a> and accept our <a :href="pol.userprivacypolicy().url" target="_blank" class="text-orange-200">Privacy Policy</a>.</p>

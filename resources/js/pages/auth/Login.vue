@@ -94,7 +94,7 @@ axios.interceptors.response.use(
                         :tabindex="1"
                         placeholder="Email or Username"
                     />
-                    <InputError :message="errors.username" />
+                    <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.username" />
                 </div>
 
                 <div class="grid gap-2">
@@ -118,7 +118,7 @@ axios.interceptors.response.use(
                         autocomplete="current-password"
                         placeholder="Password"
                     />
-                    <InputError :message="errors.password" />
+                    <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.password" />
                 </div>
 
                 <div class="flex items-center justify-between">
