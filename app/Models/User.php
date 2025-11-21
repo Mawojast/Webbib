@@ -133,4 +133,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return env('DEFAULT_PROFILE_IMAGE_PATH');
     }
+
+    public function tags()
+    {
+        return Tag::whereHas('links', fn ($q) =>
+                $q->where('user_id', $this->id)
+        )->distinct();
+    }
 }
