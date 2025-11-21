@@ -32,7 +32,7 @@ class FolderController extends Controller
         return Inertia::render('explorer/Folder', [
             'folder' => $folder->only(['name', 'id', 'created_at']),
             'childFolders' => $childFolders->map->only(['name', 'id', 'created_at']),
-            'links' => $folder->links,
+            'links' => $folder->links->map->except(['user_id']),
             'ancestorFolders' => $ancestors,
             'previousFolderId' => $folder->parent_id,
             'sidebarFolderIds' => $sidebarFolders->map->only(['folder_id']),

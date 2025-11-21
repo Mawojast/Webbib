@@ -48,7 +48,7 @@ class LinkController extends Controller
             : $faviconService->getFavicon($data['url']);
 
         $data['title'] ??= $preview->title;
-
+        $data['user_id'] = $request->user()->id;
         Link::create($data);
 
         return back();

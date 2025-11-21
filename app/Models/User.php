@@ -90,9 +90,14 @@ class User extends Authenticatable implements MustVerifyEmail
             ->withTimestamps();
     }
 
-    public function links(): HasManyThrough
+    public function linksThroughFolder(): HasManyThrough
     {
         return $this->hasManyThrough(Link::class, Folder::class);
+    }
+
+    public function links(): HasMany
+    {
+        return $this->hasMany(Link::class);
     }
 
     public function linkCount(): Attribute
