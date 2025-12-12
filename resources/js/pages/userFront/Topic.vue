@@ -68,7 +68,7 @@ function openEditLinkDialog(url: string, title: string, id: number){
     isEditLinkDialogOpen.value = true;
 }
 const submitEditLink = () => {
-    editLinkForm.put(explorer.links.update({link: editingLinkId.value}).url, {
+    editLinkForm.put(explorer.link.update({link: editingLinkId.value}).url, {
     preserveScroll: true,
     onSuccess: () => {
       isEditLinkDialogOpen.value = false;
@@ -89,7 +89,7 @@ watch(isEditLinkDialogOpen, (newValue) => {
 // Delete Link
 const deleteLinkForm = useForm({});
 const deleteLink = (id: number) => {
-    deleteLinkForm.delete(explorer.links.destroy({ link: id }).url, {
+    deleteLinkForm.delete(explorer.link.destroy({ link: id }).url, {
     preserveScroll: true,
   });
 };

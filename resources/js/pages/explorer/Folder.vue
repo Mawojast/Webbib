@@ -1,45 +1,50 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
 import FolderTileLayout from '@/layouts/explorer/folder/FolderTileLayout.vue';
-import { type BreadcrumbItem, SharedData, FolderLink, Folder, ChildFolder, AncestorFolder } from '@/types';
+import { type BreadcrumbItem, SharedData, CreateLinkForm, FolderLink, Folder, ChildFolder, AncestorFolder, Tag } from '@/types';
 import { Head, Link, usePage, useForm, router } from '@inertiajs/vue3';
 import { Button } from '@/components/ui/button';
 import InputError from '@/components/InputError.vue';
 import { Input } from '@/components/ui/input';
+import Vue3TagsInput from 'vue3-tags-input'
 import { Plus, EllipsisVertical, ChevronLeft } from 'lucide-vue-next';
 
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
 } from '@/components/ui/dialog'
 import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem
+    DropdownMenu,
+    DropdownMenuTrigger,
+    DropdownMenuContent,
+    DropdownMenuItem
 } from '@/components/ui/dropdown-menu';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/ui/accordion'
+import  TagBadge  from '@/components/Tag.vue';
 
 import { watch, ref, computed } from 'vue';
 import explorer from '@/routes/explorer';
 
-
-
 const data = defineProps<{
     folder: Folder;
     childFolders: ChildFolder[];
-    links: FolderLink[];
     ancestorFolders: AncestorFolder[];
-    previousFolderId?: number;
+    lastUsedTags: Tag[]
 }>();
+
 const page = usePage<SharedData>();
-
 const title = data.folder.name+' - Webbib';
-
 const sidebarFolders = computed(() => page.props.auth.sidebarFolders);
+const accordionValue = ref<string>('');
 
 const breadcrumbs: BreadcrumbItem[] = [
   { title: "Explorer", href: "/explorer" },
@@ -63,64 +68,96 @@ const createTopicSubmit = () => {
     });
 };
 watch(isCreateFormDialogOpen, (newValue) => {
-  if (!newValue) {
-    createForm.reset();
-    createForm.clearErrors();
-  }
+    if (!newValue) {
+        createForm.reset();
+        createForm.clearErrors();
+    }
 });
-
-
 
 // Create new Link
-const createLinkForm = useForm({
-  url: '',
-  title: '',
-  folder_id: data.folder.id,
-});
-
 const isCreateLinkDialogOpen = ref(false);
 
+const createLinkForm = useForm<CreateLinkForm>({
+    url: '',
+    title: '',
+    tags: [],
+    folder_id: data.folder.id,
+});
+
 const submitLink = () => {
-  createLinkForm.post(explorer.links.store().url, {
-    preserveScroll: true,
-    onSuccess: () => {
-      isCreateLinkDialogOpen.value = false;
-      createLinkForm.reset();
-    },
-  });
+    createLinkForm.post(explorer.link.store().url, {
+        preserveScroll: true,
+        onSuccess: () => {
+            isCreateLinkDialogOpen.value = false;
+            createLinkForm.reset();
+        },
+    });
+};
+
+const updateCreateLinkTags = (newTags: []) => {
+    createLinkForm.tags = newTags;
+};
+
+const addCreateFormTag = (tag: Tag) => {
+
+    const tagExists = createLinkForm.tags.some(t =>
+        t === tag.name
+    );
+
+    if (!tagExists) {
+        createLinkForm.tags.push(tag.name);
+    }
 };
 
 watch(isCreateLinkDialogOpen, (newValue) => {
-  if (!newValue) {
-    createLinkForm.reset();
-    createLinkForm.clearErrors();
-  }
+    if (!newValue) {
+        createLinkForm.reset();
+        createLinkForm.clearErrors();
+        accordionValue.value = '';
+    }
 });
 
 // Edit Link
-const editLinkForm = useForm({
-  url: '',
-  title: '',
-  folder_id: data.folder.id,
+const editLinkForm = useForm<LinkForm>({
+    url: '',
+    title: '',
+    tags: [],
+    folder_id: data.folder.id,
 });
 
-const isEditLinkDialogOpen = ref(false);
 const editingLinkId = ref(0);
-function openEditLinkDialog(url: string, title: string, id: number){
-    editLinkForm.url = url;
-    editLinkForm.title = title;
-    editingLinkId.value = id;
+const isEditLinkDialogOpen = ref(false);
+
+function openEditLinkDialog(link: FolderLink){
+    editLinkForm.url = link.url;
+    editLinkForm.title = link.title;
+    editLinkForm.tags = link.tags.map(t => t.name);
+    editingLinkId.value = link.id;
     isEditLinkDialogOpen.value = true;
 }
+
 const submitEditLink = () => {
-    editLinkForm.put(explorer.links.update({link: editingLinkId.value}).url, {
-    preserveScroll: true,
-    onSuccess: () => {
-      isEditLinkDialogOpen.value = false;
-      editingLinkId.value = 0;
-      editLinkForm.reset();
-    },
-  });
+    editLinkForm.put(explorer.link.update({link: editingLinkId.value}).url, {
+        preserveScroll: true,
+        onSuccess: () => {
+            isEditLinkDialogOpen.value = false;
+            editingLinkId.value = 0;
+            editLinkForm.reset();
+        },
+    });
+};
+
+const updateEditLinkTags = (newTags: []) => {
+    editLinkForm.tags = newTags;
+};
+
+const addEditFormTag = (tag: Tag) => {
+    const tagExists = editLinkForm.tags.some(t =>
+        t === tag.name
+    );
+    if (!tagExists) {
+        editLinkForm.tags.push(tag.name);
+    }
 };
 
 watch(isEditLinkDialogOpen, (newValue) => {
@@ -128,13 +165,14 @@ watch(isEditLinkDialogOpen, (newValue) => {
         editLinkForm.reset();
         editLinkForm.clearErrors();
         editingLinkId.value = 0;
+        accordionValue.value = '';
     }
 });
 
 // delete link
 const deleteLinkForm = useForm({});
 const deleteLink = (id: number) => {
-    deleteLinkForm.delete(explorer.links.destroy({ link: id }).url, {
+    deleteLinkForm.delete(explorer.link.destroy({ link: id }).url, {
         preserveScroll: true,
     });
 };
@@ -146,13 +184,13 @@ const deleteLink = (id: number) => {
     <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
         <div class="flex justify-between items-center w-full">
             <div>
-                <Link :href="explorer.index(folder.id)" v-if="!previousFolderId">
-                    <Button class="rounded-sm bg-neutral-100 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors">
+                <Link :href="explorer.index(folder.id)" v-if="!data.folder.parent_id">
+                    <Button class="shadow-sm rounded-sm bg-neutral-200 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700">
                         <ChevronLeft />
                     </Button>
                 </Link>
-                <Link :href="explorer.folder.index(previousFolderId)" v-if="previousFolderId">
-                    <Button class="rounded-sm bg-neutral-100 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors">
+                <Link :href="explorer.folder.index(data.folder.parent_id)" v-if="data.folder.parent_id">
+                    <Button class="rounded-sm shadow-sm bg-neutral-200 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700">
                         <ChevronLeft />
                     </Button>
                 </Link>
@@ -160,12 +198,12 @@ const deleteLink = (id: number) => {
 
             <div class="flex">
                 <div class="pl-3">
-                    <Button @click="isCreateFormDialogOpen = true" class="rounded-sm bg-neutral-100 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors">
+                    <Button @click="isCreateFormDialogOpen = true" class="rounded-sm shadow-sm bg-neutral-200 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700">
                         <Plus />Topic
                     </Button>
                 </div>
                 <div class="pl-3">
-                    <Button @click="isCreateLinkDialogOpen = true" class="rounded-sm bg-neutral-100 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors">
+                    <Button @click="isCreateLinkDialogOpen = true" class="rounded-sm shadow-sm bg-neutral-200 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700">
                         <Plus />Link
                     </Button>
                 </div>
@@ -177,7 +215,7 @@ const deleteLink = (id: number) => {
             <DialogContent  class="sm:max-w-md animate-in fade-in-90 zoom-in-80 duration-200">
                 <form @submit.prevent="createTopicSubmit" class="space-y-6">
                 <DialogHeader>
-                    <DialogTitle>Add Topic</DialogTitle>
+                    <DialogTitle class="text-center">Add Topic</DialogTitle>
                     <DialogDescription>
                         <div class="grid gap-2">
                             <Input id="name" class="mt-1 block w-full" v-model="createForm.name" required placeholder="Name" />
@@ -207,13 +245,40 @@ const deleteLink = (id: number) => {
             <DialogContent class="sm:max-w-md animate-in fade-in-90 zoom-in-80 duration-200">
             <form @submit.prevent="submitLink" class="space-y-6">
                 <DialogHeader>
-                    <DialogTitle>Add Link</DialogTitle>
+                    <DialogTitle class="text-center pb-2">Add Link</DialogTitle>
                     <DialogDescription>
                     <div class="grid gap-2">
                         <Input id="url" v-model="createLinkForm.url" required placeholder="URL" />
                         <InputError :message="createLinkForm.errors.url" />
                         <Input id="title" v-model="createLinkForm.title" placeholder="Title" />
                         <InputError :message="createLinkForm.errors.title" />
+                        <vue3-tags-input
+                            placeholder="Input tags"
+                            :tags="createLinkForm.tags"
+                            @on-tags-changed="updateCreateLinkTags"
+                            id="showHeaderLinkForm-tags-input"
+                        />
+                        <InputError :message="createLinkForm.errors.tags" />
+                        <!-- Preview Tags -->
+                        <Accordion type="single" collapsible class="w-full" v-model="accordionValue" v-if="data.lastUsedTags.length">
+                            <AccordionItem value="item-1">
+                                <AccordionTrigger>Last Tags</AccordionTrigger>
+                                <AccordionContent>
+                                    <div class="preview-tags-qs pt-2">
+                                        <div class="preview-tags-list-qs flex flex-wrap gap-2">
+                                            <TagBadge
+                                                v-for="previewTag in data.lastUsedTags"
+                                                :key="previewTag"
+                                                @click="addCreateFormTag(previewTag)"
+                                                :name="previewTag.name"
+                                            >
+                                                {{ previewTag.name }}
+                                            </TagBadge>
+                                        </div>
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
                     </div>
                     </DialogDescription>
                 </DialogHeader>
@@ -225,19 +290,40 @@ const deleteLink = (id: number) => {
             </form>
             </DialogContent>
         </Dialog>
-
         <!-- Edit Link Dialog -->
         <Dialog v-model:open="isEditLinkDialogOpen">
             <DialogContent class="sm:max-w-md animate-in fade-in-90 zoom-in-80 duration-200">
                 <form @submit.prevent="submitEditLink" class="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Edit Link</DialogTitle>
+                        <DialogTitle class="text-center pb-2">Edit Link</DialogTitle>
                         <DialogDescription>
                             <div class="grid gap-2">
                                 <Input id="url" v-model="editLinkForm.url" required placeholder="URL" />
                                 <InputError :message="editLinkForm.errors.url" />
                                 <Input id="title" v-model="editLinkForm.title" placeholder="Title" />
                                 <InputError :message="editLinkForm.errors.title" />
+                                <vue3-tags-input placeholder="Tags" :tags="editLinkForm.tags" @on-tags-changed="updateEditLinkTags" id="showHeaderLinkForm-tags-input" class=".tag-label"/>
+                                <InputError :message="createLinkForm.errors.tags" />
+                                <!-- Preview Tags -->
+                                <Accordion type="single" collapsible class="w-full" v-model="accordionValue" v-if="data.lastUsedTags.length">
+                                    <AccordionItem value="item-1">
+                                        <AccordionTrigger>Last Tags</AccordionTrigger>
+                                        <AccordionContent>
+                                            <div class="preview-tags-qs pt-2">
+                                                <div class="preview-tags-list-qs flex flex-wrap gap-2">
+                                                    <TagBadge
+                                                        v-for="previewTag in data.lastUsedTags"
+                                                        :key="previewTag"
+                                                        @click="addEditFormTag(previewTag)"
+                                                        :name="previewTag.name"
+                                                    >
+                                                        {{ previewTag.name }}
+                                                    </TagBadge>
+                                                </div>
+                                            </div>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                </Accordion>
                             </div>
                         </DialogDescription>
                     </DialogHeader>
@@ -253,8 +339,8 @@ const deleteLink = (id: number) => {
 
         <div class="mt-8">
             <h2 class="text-lg font-semibold mb-4"></h2>
-            <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5" v-if="data.links.length">
-                <li v-for="link in data.links" :key="link.id">
+            <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5" v-if="data.folder.links.length">
+                <li v-for="link in data.folder.links" :key="link.id">
                     <article class="max-w-sm rounded overflow-hidden shadow-lg relative p-4"><!--border dark:border-neutral-700-->
                         <a :href="link.url" target="_blank" class="font-medium">
                         <div class="flex items-center justify-center h-24">
@@ -272,7 +358,7 @@ const deleteLink = (id: number) => {
                                     </button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent class="w-40" align="end">
-                                    <DropdownMenuItem as-child @click="openEditLinkDialog(link.url, link.title, link.id)">
+                                    <DropdownMenuItem as-child @click="openEditLinkDialog(link)">
                                         <span>Edit</span>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem @click="deleteLink(link.id)" class="text-red-500">

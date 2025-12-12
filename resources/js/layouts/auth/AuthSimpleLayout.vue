@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
-import { home } from '@/routes';
-import { Link } from '@inertiajs/vue3';
+import dashboard from '@/routes/dashboard';
+import { Link, usePage } from '@inertiajs/vue3';
 
 defineProps<{
     title?: string;
     description?: string;
 }>();
+
+const page = usePage();
+const paths = [
+    '/welcome',
+    '/register',
+    '/login',
+]
+
+const imageSrc = (paths.some( path => path === page.url))
+    ? '/logo/logo_webb_1.png'
+    : '/logo/logo_webb.png'
 </script>
 
 <template>
@@ -17,12 +28,11 @@ defineProps<{
             <div class="flex flex-col gap-8">
                 <div class="flex flex-col items-center gap-4">
                     <Link
-                        :href="home()"
+                        :href="dashboard.index()"
                         class="flex flex-col items-center gap-2 font-medium"
                     >
                         <div class="mb-1 flex h-24 w-24 items-center justify-center rounded-md">
-
-                            <img src="/logo/logo_webb_1.png" class=" h-24 w-24 fill-current text-[var(--foreground)] dark:text-white">
+                            <img :src="imageSrc" class="rounded h-24 w-24 fill-current text-[var(--foreground)] dark:text-white">
                         </div>
                         <span class="sr-only">{{ title }}</span>
                     </Link>

@@ -4,11 +4,10 @@ namespace App\Http\Requests\Explorer;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Rules\MaxLinksRule;
 use App\Rules\SecureUrlRule;
+use App\Rules\LinkTagsRule;
 
-
-class StoreLinkRequest extends FormRequest
+class UpdateExplorerLinkRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +24,17 @@ class StoreLinkRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $link = $this->route('link');
+
+        $rules = [
             'url' => [
                 'required',
                 'string',
                 'max:1024',
+                'active_url',
                 Rule::unique('links', 'url')
-                    ->where('folder_id', $this->input('folder_id')),
-                new MaxLinksRule($this->user()),
-                new SecureUrlRule(app('log'))
+                    ->where('folder_id', $link->folder_id)
+                    ->ignore($link),
             ],
             'title' => [
                 'max:120',
@@ -41,8 +42,17 @@ class StoreLinkRequest extends FormRequest
             'folder_id' => [
                 'required',
                 'integer'
+            ],
+            'tags' => [
+                new LinkTagsRule()
             ]
         ];
+
+        if ($this->input('url') !== $link->url) {
+            $rules['url'][] = new SecureUrlRule(app('log'));
+        }
+
+        return $rules;
     }
 
     public function messages(): array

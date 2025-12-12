@@ -28,7 +28,7 @@ import pol from '@/routes/pol';
             v-bind="store.form()"
             :reset-on-success="['password', 'password_confirmation']"
             v-slot="{ errors, processing }"
-            class="flex flex-col gap-6"
+            class="flex flex-col gap-6 text-neutral-200"
         >
             <div class="grid gap-6">
                 <div class="grid gap-2">
@@ -42,6 +42,7 @@ import pol from '@/routes/pol';
                         autocomplete="name"
                         name="name"
                         placeholder="Username"
+                        class="border-0 bg-neutral-200  shadow-2xl text-neutral-800 dark:text-neutral-200"
                     />
                     <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.name" />
                 </div>
@@ -56,6 +57,7 @@ import pol from '@/routes/pol';
                         autocomplete="email"
                         name="email"
                         placeholder="email@example.com"
+                        class="border-0 shadow-2xl bg-neutral-200 text-neutral-800 dark:text-neutral-200"
                     />
                     <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.email" />
                 </div>
@@ -70,6 +72,7 @@ import pol from '@/routes/pol';
                         autocomplete="new-password"
                         name="password"
                         placeholder="Password"
+                        class="border-0 bg-neutral-200 text-neutral-800 dark:text-neutral-200"
                     />
                     <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.password" />
                 </div>
@@ -84,6 +87,7 @@ import pol from '@/routes/pol';
                         autocomplete="new-password"
                         name="password_confirmation"
                         placeholder="Confirm password"
+                        class="border-0 bg-neutral-200 text-neutral-800 dark:text-neutral-200"
                     />
                     <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.password_confirmation" />
                 </div>
@@ -92,7 +96,7 @@ import pol from '@/routes/pol';
                 </div>
                 <Button
                     type="submit"
-                    class="mt-2 w-full"
+                    class="mt-2 w-full hover:cursor-pointer"
                     tabindex="5"
                     :disabled="processing"
                     data-test="register-user-button"
@@ -102,19 +106,19 @@ import pol from '@/routes/pol';
                 </Button>
             </div>
 
-            <div class="text-center text-sm text-muted-foreground">
+            <div class="text-center text-sm text-neutral-200">
                 Already have an account?
                 <TextLink
                     :href="login()"
-                    class="underline underline-offset-4"
+                    class="underline underline-offset-4 text-neutral-200"
                     :tabindex="6"
                     >Log in</TextLink
                 >
             </div>
         </Form>
-        <div class="text-xs w-full text-center ">
-            <TextLink :href="pol.privacypolicy()" class="no-underline">Privacy Policy</TextLink>
-            <TextLink :href="pol.imprint()" class="no-underline pl-2">Imprint</TextLink>
+        <div class="text-xs w-full text-center">
+            <TextLink :href="pol.privacypolicy()" class="text-neutral-200">Privacy Policy</TextLink>
+            <TextLink :href="pol.imprint()" class="no-underline pl-2 text-neutral-200">Imprint</TextLink>
         </div>
     </AuthBase>
 </template>

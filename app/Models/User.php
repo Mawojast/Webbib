@@ -136,8 +136,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function tags()
     {
-        return Tag::whereHas('links', fn ($q) =>
-                $q->where('user_id', $this->id)
-        )->distinct();
+        return Tag::select('tags.*')
+            ->join('links_tags', 'links_tags.tag_id', '=', 'tags.id')
+            ->join('links', 'links.id', '=', 'links_tags.link_id')
+            ->where('links.user_id', $this->id)
+            ->distinct();
     }
 }

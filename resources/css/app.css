@@ -263,3 +263,74 @@ html.dark {
     word-wrap: break-word;
     }
 }
+
+/* #explorer-tags-input {
+
+}
+
+#explorer-tags-input .v3ti-content {
+background-color: hsl(0,0%,9.9%);
+}
+
+#explorer-tags-input .v3ti-tag {
+  background-color: hsl(0,0%,28.9%);
+  color: black;
+}
+
+#explorer-tags-input .v3ti-content {
+    background-color: hsl(0,0%,28.9%);
+  color: black;
+}
+
+#showHeaderLinkForm-tags-input .v3ti-remove-tag {
+  background-color: hsl(0,0%,74.9%);
+
+}
+#explorer-tags-input .v3ti-new-tag::placeholder {
+  opacity: 1;
+}
+
+#explorer-tags-input .v3ti-remove-tag:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+} */
+
+#showHeaderLinkForm-tags-input .v3ti-new-tag {
+    background-color: hsl(240, 3%, 82%);
+    color: hsl(0, 0%, 2%);
+    font-weight: bold;
+    border: none;
+
+    outline: none;
+}
+
+#showHeaderLinkForm-tags-input {
+    background-color: hsl(240, 3%, 82%);
+
+
+    color: hsl(0,0%,9.9%);
+}
+#showHeaderLinkForm-tags-input:focus {
+    background-color: hsl(240, 3%, 82%);
+    color: hsl(0,0%,9.9%);
+}
+
+#showHeaderLinkForm-tags-input .v3ti-content {
+
+    background-color: hsl(240, 3%, 82%);
+
+    border-color: hsl(240, 3%, 82%);
+}
+
+#showHeaderLinkForm-tags-input .v3ti-content .v3ti-tag {
+
+    background-color: hsl(0, 0%, 51%);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: hsl(0,0%,9.9%);
+}
+
+
+
+
+

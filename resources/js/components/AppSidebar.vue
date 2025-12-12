@@ -16,7 +16,7 @@ import dashboard from "@/routes/dashboard"
 import userfront from '@/routes/userfront';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
-import { Monitor, Folder, LayoutGrid, CircleUserRound } from 'lucide-vue-next';
+import { Monitor, Folder, LayoutGrid, CircleUserRound, Link as LinkIcon } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 import { computed } from "vue"
 
@@ -33,6 +33,11 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: '/dashboard',
         icon: Monitor,
+    },
+    {
+        title: 'Links',
+        href: '/link',
+        icon: LinkIcon,
     },
     {
         title: 'Explorer',

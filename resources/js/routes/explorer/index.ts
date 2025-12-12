@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
-import links from './links'
 import folder from './folder'
 import update603324 from './update'
+import link from './link'
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
 * @see app/Http/Controllers/Explorer/ExplorerController.php:22
@@ -438,13 +438,13 @@ update.form = updateForm
 
 
 const explorer = {
-    links: Object.assign(links, links),
     index: Object.assign(index, index),
     edit: Object.assign(edit, edit),
     folder: Object.assign(folder, folder),
     store: Object.assign(store, store),
     destroy: Object.assign(destroy, destroy),
     update: Object.assign(update, update603324),
+    link: Object.assign(link, link),
 }
 
 export default explorer

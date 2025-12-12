@@ -26,7 +26,7 @@ const editLinkForm = useForm({
 });
 
 const submit = () => {
-  editLinkForm.put(route('explorer.links.update', {link: data.link.id}), {
+  editLinkForm.put(route('explorer.link.update', {link: data.link.id}), {
     preserveScroll: true,
   });
 };

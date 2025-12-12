@@ -54,8 +54,19 @@ export interface Folder {
     created_at: string;
     updated_at: string;
     parent_id?: number;
+    links: Link[];
 }
 
+export interface Link {
+    created_at: string;
+    folder_id?: number;
+    id: number;
+    image: string;
+    tags: [];
+    title?: string;
+    updated_at: string;
+    url: string;
+}
 export interface ChildFolder {
     id: number;
     name: string;
@@ -78,6 +89,7 @@ export interface FolderLink {
     image: string;
     created_at: string;
     updated_at: string;
+    tags: Tag[];
 }
 
 export interface UserfrontLink {
@@ -86,6 +98,24 @@ export interface UserfrontLink {
     url: string;
     image?: string;
     position?: number;
+}
+
+export interface Tag {
+    name: string;
+}
+
+interface CreateLinkForm {
+    url: string;
+    title: string | null;
+    tags: [];
+    folder_id?: number;
+}
+
+interface EditLinkForm {
+    url: string;
+    title: string | null;
+    tags: [];
+    folder_id?: number;
 }
 
 export type BreadcrumbItemType = BreadcrumbItem;

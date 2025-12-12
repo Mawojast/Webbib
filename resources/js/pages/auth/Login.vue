@@ -35,10 +35,9 @@ axios.interceptors.response.use(
         if (error.response) {
             const data = JSON.parse(error.response.data);
             const statusCode = error.response.status;
-            const msg = data.message || 'An error occurred'; // <== nicht errorMessage
+            const msg = data.message || 'An error occurred';
 
             if (statusCode === 429) {
-                 // JSON ist schon geparst, kein JSON.parse nötig
                 errorMessage.value = data.message || msg;
                 showError.value = true;
                 isLocked.value = true;
@@ -50,7 +49,6 @@ axios.interceptors.response.use(
                     isLocked.value = false;
                 }, retryAfter);
             }
-            // Optionally, return a rejected promise to ensure `.catch` is triggered in individual requests
             return Promise.reject(error);
         }
     }
@@ -93,6 +91,7 @@ axios.interceptors.response.use(
                         autofocus
                         :tabindex="1"
                         placeholder="Email or Username"
+                        class="border-0 bg-neutral-200 text-neutral-800 dark:text-neutral-200"
                     />
                     <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.username" />
                 </div>
@@ -103,7 +102,7 @@ axios.interceptors.response.use(
                         <TextLink
                             v-if="canResetPassword"
                             :href="request()"
-                            class="text-sm"
+                            class="text-sm text-neutral-200"
                             :tabindex="5"
                         >
                             Forgot password?
@@ -117,6 +116,7 @@ axios.interceptors.response.use(
                         :tabindex="2"
                         autocomplete="current-password"
                         placeholder="Password"
+                        class="border-0 bg-neutral-200 text-neutral-800 dark:text-neutral-200"
                     />
                     <InputError class="font-medium bg-red-100 rounded text-center" :message="errors.password" />
                 </div>
@@ -141,7 +141,7 @@ axios.interceptors.response.use(
                 <template v-else>
                     <Button
                     type="submit"
-                    class="mt-4 w-full"
+                    class="mt-4 w-full hover:cursor-pointer"
                     :tabindex="4"
                     :disabled="processing"
                     data-test="login-button"
@@ -153,16 +153,16 @@ axios.interceptors.response.use(
             </div>
 
             <div
-                class="text-center text-sm text-muted-foreground"
+                class="text-center text-sm"
                 v-if="canRegister"
             >
                 Don't have an account?
-                <TextLink :href="register()" :tabindex="5">Sign up</TextLink>
+                <TextLink :href="register()" :tabindex="5" class="text-neutral-200">Sign up</TextLink>
             </div>
         </Form>
         <div class="text-xs w-full text-center">
-            <TextLink :href="pol.privacypolicy()" class="no-underline">Privacy Policy</TextLink>
-            <TextLink :href="pol.imprint()" class="no-underline pl-2">Imprint</TextLink>
+            <TextLink :href="pol.privacypolicy()" class="no-underline text-neutral-200">Privacy Policy</TextLink>
+            <TextLink :href="pol.imprint()" class="no-underline pl-2 text-neutral-200">Imprint</TextLink>
         </div>
     </AuthBase>
 </template>

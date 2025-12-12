@@ -2,20 +2,11 @@
 
 use App\Http\Controllers\Explorer\ExplorerController;
 use App\Http\Controllers\Explorer\FolderController;
-use App\Http\Controllers\Explorer\LinkController;
+use App\Http\Controllers\LinkController;
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::middleware(['auth', 'verified'])->group(function () {
-
-    Route::prefix('explorer')
-        ->name('explorer.')
-        ->group(function () {
-            Route::resource('links', LinkController::class)->middleware('verified');
-        }
-    );
 
     Route::get('explorer', [ExplorerController::class, 'index'])->name('explorer.index');
     Route::get('explorer/{folder}/edit', [ExplorerController::class, 'edit'])->name('explorer.edit')->middleware('verified');

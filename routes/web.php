@@ -25,6 +25,7 @@ require __DIR__.'/settings.php';
 require __DIR__.'/pol.php';
 require __DIR__.'/explorer.php';
 require __DIR__.'/sidebar.php';
+require __DIR__.'/link.php';
 
 Route::get('{user}', [UserFrontController::class, 'index'])->name('userfront.index');
 Route::get('{user}/topic', fn () => abort(404));

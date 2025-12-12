@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import { Link, Head } from '@inertiajs/vue3';
+import { Link, Head, usePage } from '@inertiajs/vue3';
 import LightDarkSwitch from '@/components/LightDarkSwitch.vue';
 import { login, register } from '@/routes';
 import dashboard from '@/routes/dashboard';
 import { home } from '@/routes';
+const page = usePage();
+const paths = [
+    '/welcome',
+    '/register',
+    '/login',
+]
+
+const imageSrc = (paths.some( path => path === page.url))
+    ? '/logo/logo_webb_1.png'
+    : '/logo/logo_webb.png'
 </script>
 
 <template>
@@ -49,7 +59,7 @@ import { home } from '@/routes';
     <main class="flex items-center min-h-screen flex-col p-6">
 <div class="flex flex-col items-center justify-center min-h-screen">
     <a :href="home().url">
-        <img src="/logo/logo_webb_1.png" class="h-28">
+        <img :src="imageSrc" class="rounded h-28">
     </a>
     <h1 class="text-6xl font-bold text-red-500 pt-10">Wrong Site</h1>
     <p class="pt-8 text-lg text-neutral-200">Nothing to do here</p>

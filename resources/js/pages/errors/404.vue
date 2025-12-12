@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import { Link, Head } from '@inertiajs/vue3';
+import { Link, Head, usePage } from '@inertiajs/vue3';
 import LightDarkSwitch from '@/components/LightDarkSwitch.vue';
 import { login, register } from '@/routes';
 import dashboard from '@/routes/dashboard';
 import { home } from '@/routes';
+const page = usePage();
+const paths = [
+    '/welcome',
+    '/register',
+    '/login',
+]
+
+const imageSrc = (paths.some( path => path === page.url))
+    ? '/logo/logo_webb_1.png'
+    : '/logo/logo_webb.png'
 </script>
 
 <template>
@@ -12,7 +22,7 @@ import { home } from '@/routes';
         <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
             <a class="block text-teal-600 dark:text-teal-300" :href="home().url">
                 <span class="sr-only">Home</span>
-                <img src="/logo/logo_webb.png" class="h-8 rounded">
+                <img :src="imageSrc" class="h-8 rounded">
             </a>
             <div class="flex flex-1 items-center justify-end md:justify-between">
                 <nav aria-label="Global" class="hidden md:block"></nav>
@@ -49,7 +59,7 @@ import { home } from '@/routes';
     <main class="flex items-center min-h-screen flex-col p-6">
 <div class="flex flex-col items-center justify-center min-h-screen">
     <a :href="home().url">
-        <img src="/logo/logo_webb_1.png" class="h-28">
+        <img :src="imageSrc" class="rounded h-28">
     </a>
     <h1 class="text-6xl font-bold text-red-500 pt-10">Site Not Found</h1>
     <p class="pt-8 text-lg text-neutral-200">Nothing to do here</p>

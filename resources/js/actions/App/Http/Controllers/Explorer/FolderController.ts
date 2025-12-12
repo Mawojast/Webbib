@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::edit
-* @see app/Http/Controllers/Explorer/FolderController.php:42
+* @see app/Http/Controllers/Explorer/FolderController.php:47
 * @route '/explorer/folder/{folder}/edit'
 */
 export const edit = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::edit
-* @see app/Http/Controllers/Explorer/FolderController.php:42
+* @see app/Http/Controllers/Explorer/FolderController.php:47
 * @route '/explorer/folder/{folder}/edit'
 */
 edit.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -50,7 +50,7 @@ edit.url = (args: { folder: number | { id: number } } | [folder: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::edit
-* @see app/Http/Controllers/Explorer/FolderController.php:42
+* @see app/Http/Controllers/Explorer/FolderController.php:47
 * @route '/explorer/folder/{folder}/edit'
 */
 edit.get = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -60,7 +60,7 @@ edit.get = (args: { folder: number | { id: number } } | [folder: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::edit
-* @see app/Http/Controllers/Explorer/FolderController.php:42
+* @see app/Http/Controllers/Explorer/FolderController.php:47
 * @route '/explorer/folder/{folder}/edit'
 */
 edit.head = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -70,7 +70,7 @@ edit.head = (args: { folder: number | { id: number } } | [folder: number | { id:
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::edit
-* @see app/Http/Controllers/Explorer/FolderController.php:42
+* @see app/Http/Controllers/Explorer/FolderController.php:47
 * @route '/explorer/folder/{folder}/edit'
 */
 const editForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -80,7 +80,7 @@ const editForm = (args: { folder: number | { id: number } } | [folder: number | 
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::edit
-* @see app/Http/Controllers/Explorer/FolderController.php:42
+* @see app/Http/Controllers/Explorer/FolderController.php:47
 * @route '/explorer/folder/{folder}/edit'
 */
 editForm.get = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -90,7 +90,7 @@ editForm.get = (args: { folder: number | { id: number } } | [folder: number | { 
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::edit
-* @see app/Http/Controllers/Explorer/FolderController.php:42
+* @see app/Http/Controllers/Explorer/FolderController.php:47
 * @route '/explorer/folder/{folder}/edit'
 */
 editForm.head = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -107,7 +107,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::index
-* @see app/Http/Controllers/Explorer/FolderController.php:21
+* @see app/Http/Controllers/Explorer/FolderController.php:22
 * @route '/explorer/folder/{folder}'
 */
 export const index = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -122,7 +122,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::index
-* @see app/Http/Controllers/Explorer/FolderController.php:21
+* @see app/Http/Controllers/Explorer/FolderController.php:22
 * @route '/explorer/folder/{folder}'
 */
 index.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -156,7 +156,7 @@ index.url = (args: { folder: number | { id: number } } | [folder: number | { id:
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::index
-* @see app/Http/Controllers/Explorer/FolderController.php:21
+* @see app/Http/Controllers/Explorer/FolderController.php:22
 * @route '/explorer/folder/{folder}'
 */
 index.get = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -166,7 +166,7 @@ index.get = (args: { folder: number | { id: number } } | [folder: number | { id:
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::index
-* @see app/Http/Controllers/Explorer/FolderController.php:21
+* @see app/Http/Controllers/Explorer/FolderController.php:22
 * @route '/explorer/folder/{folder}'
 */
 index.head = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -176,7 +176,7 @@ index.head = (args: { folder: number | { id: number } } | [folder: number | { id
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::index
-* @see app/Http/Controllers/Explorer/FolderController.php:21
+* @see app/Http/Controllers/Explorer/FolderController.php:22
 * @route '/explorer/folder/{folder}'
 */
 const indexForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -186,7 +186,7 @@ const indexForm = (args: { folder: number | { id: number } } | [folder: number |
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::index
-* @see app/Http/Controllers/Explorer/FolderController.php:21
+* @see app/Http/Controllers/Explorer/FolderController.php:22
 * @route '/explorer/folder/{folder}'
 */
 indexForm.get = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -196,7 +196,7 @@ indexForm.get = (args: { folder: number | { id: number } } | [folder: number | {
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::index
-* @see app/Http/Controllers/Explorer/FolderController.php:21
+* @see app/Http/Controllers/Explorer/FolderController.php:22
 * @route '/explorer/folder/{folder}'
 */
 indexForm.head = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -213,7 +213,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::store
-* @see app/Http/Controllers/Explorer/FolderController.php:51
+* @see app/Http/Controllers/Explorer/FolderController.php:56
 * @route '/explorer/folder/{folder}'
 */
 export const store = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -228,7 +228,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::store
-* @see app/Http/Controllers/Explorer/FolderController.php:51
+* @see app/Http/Controllers/Explorer/FolderController.php:56
 * @route '/explorer/folder/{folder}'
 */
 store.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -262,7 +262,7 @@ store.url = (args: { folder: number | { id: number } } | [folder: number | { id:
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::store
-* @see app/Http/Controllers/Explorer/FolderController.php:51
+* @see app/Http/Controllers/Explorer/FolderController.php:56
 * @route '/explorer/folder/{folder}'
 */
 store.post = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -272,7 +272,7 @@ store.post = (args: { folder: number | { id: number } } | [folder: number | { id
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::store
-* @see app/Http/Controllers/Explorer/FolderController.php:51
+* @see app/Http/Controllers/Explorer/FolderController.php:56
 * @route '/explorer/folder/{folder}'
 */
 const storeForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -282,7 +282,7 @@ const storeForm = (args: { folder: number | { id: number } } | [folder: number |
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::store
-* @see app/Http/Controllers/Explorer/FolderController.php:51
+* @see app/Http/Controllers/Explorer/FolderController.php:56
 * @route '/explorer/folder/{folder}'
 */
 storeForm.post = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -294,7 +294,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::destroy
-* @see app/Http/Controllers/Explorer/FolderController.php:75
+* @see app/Http/Controllers/Explorer/FolderController.php:80
 * @route '/explorer/folder/{folder}'
 */
 export const destroy = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -309,7 +309,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::destroy
-* @see app/Http/Controllers/Explorer/FolderController.php:75
+* @see app/Http/Controllers/Explorer/FolderController.php:80
 * @route '/explorer/folder/{folder}'
 */
 destroy.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -343,7 +343,7 @@ destroy.url = (args: { folder: number | { id: number } } | [folder: number | { i
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::destroy
-* @see app/Http/Controllers/Explorer/FolderController.php:75
+* @see app/Http/Controllers/Explorer/FolderController.php:80
 * @route '/explorer/folder/{folder}'
 */
 destroy.delete = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -353,7 +353,7 @@ destroy.delete = (args: { folder: number | { id: number } } | [folder: number | 
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::destroy
-* @see app/Http/Controllers/Explorer/FolderController.php:75
+* @see app/Http/Controllers/Explorer/FolderController.php:80
 * @route '/explorer/folder/{folder}'
 */
 const destroyForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -368,7 +368,7 @@ const destroyForm = (args: { folder: number | { id: number } } | [folder: number
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::destroy
-* @see app/Http/Controllers/Explorer/FolderController.php:75
+* @see app/Http/Controllers/Explorer/FolderController.php:80
 * @route '/explorer/folder/{folder}'
 */
 destroyForm.delete = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -385,7 +385,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::update
-* @see app/Http/Controllers/Explorer/FolderController.php:65
+* @see app/Http/Controllers/Explorer/FolderController.php:70
 * @route '/explorer/folder/{folder}'
 */
 export const update = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -400,7 +400,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::update
-* @see app/Http/Controllers/Explorer/FolderController.php:65
+* @see app/Http/Controllers/Explorer/FolderController.php:70
 * @route '/explorer/folder/{folder}'
 */
 update.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -434,7 +434,7 @@ update.url = (args: { folder: number | { id: number } } | [folder: number | { id
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::update
-* @see app/Http/Controllers/Explorer/FolderController.php:65
+* @see app/Http/Controllers/Explorer/FolderController.php:70
 * @route '/explorer/folder/{folder}'
 */
 update.put = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -444,7 +444,7 @@ update.put = (args: { folder: number | { id: number } } | [folder: number | { id
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::update
-* @see app/Http/Controllers/Explorer/FolderController.php:65
+* @see app/Http/Controllers/Explorer/FolderController.php:70
 * @route '/explorer/folder/{folder}'
 */
 const updateForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -459,7 +459,7 @@ const updateForm = (args: { folder: number | { id: number } } | [folder: number 
 
 /**
 * @see \App\Http\Controllers\Explorer\FolderController::update
-* @see app/Http/Controllers/Explorer/FolderController.php:65
+* @see app/Http/Controllers/Explorer/FolderController.php:70
 * @route '/explorer/folder/{folder}'
 */
 updateForm.put = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

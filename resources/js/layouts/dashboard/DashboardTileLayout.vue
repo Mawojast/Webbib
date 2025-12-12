@@ -63,15 +63,13 @@ const deleteLink = (id: number) => {
     <section class="mt-8">
         <!-- vuedraggable: https://github.com/SortableJS/vue.draggable.next -->
         <!-- Position mode is active -->
-
-
         <template v-if="positionMode">
         <draggable
         v-model="order"
         item-key="id"
         @change="submitChangeOrder"
         handle=".drag-handle"
-        class="grid gap-4 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
             <template #item="{ element }">
                 <div

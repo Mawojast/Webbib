@@ -24,7 +24,8 @@ import {
 import { ref, computed } from 'vue';
 
 const data = defineProps<{
-    folders: Folder[]
+    folders: Folder[];
+
 }>();
 
 const page = usePage<SharedData>();
@@ -58,7 +59,7 @@ const submit = () => {
     <div class="flex w-full rounded-sm">
         <Button
             @click="isCreateFormDialogOpen = true"
-            class="ml-auto px-4 py-2 rounded-sm bg-neutral-100 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors"
+            class="shadow-sm ml-auto px-4 py-2 rounded-sm bg-neutral-200 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
         >
             <Plus />
         </Button>
@@ -70,7 +71,7 @@ const submit = () => {
             <DialogContent class="sm:max-w-md animate-in fade-in-90 zoom-in-80 duration-200">
                 <form @submit.prevent="submit" class="space-y-6">
                     <DialogHeader>
-                        <DialogTitle>Add Topic Tree</DialogTitle>
+                        <DialogTitle class="text-center pb-1.5">Add Topic Tree</DialogTitle>
                         <DialogDescription>
                             <div class="grid gap-2">
                                 <Input id="name" v-model="createForm.name" required placeholder="Name" />

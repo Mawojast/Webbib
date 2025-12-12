@@ -16,3 +16,13 @@ export function urlIsActive(
 export function toUrl(href: NonNullable<InertiaLinkProps['href']>) {
     return typeof href === 'string' ? href : href?.url;
 }
+
+export function valueUpdater<T>(
+  updaterOrValue: T | ((old: T) => T),
+  target: { value: T }
+) {
+  target.value =
+    typeof updaterOrValue === 'function'
+      ? (updaterOrValue as (old: T) => T)(target.value)
+      : updaterOrValue
+}

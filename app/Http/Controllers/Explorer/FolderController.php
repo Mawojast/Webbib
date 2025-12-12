@@ -12,30 +12,35 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\SidebarFolder;
+use Illuminate\Http\Request;
 
 class FolderController extends Controller
 {
     /**
      * Show the dashboard page.
      */
-    public function index(Folder $folder): Response
+    public function index(Folder $folder, Request $request): Response
     {
         Gate::authorize('view', $folder);
-        $childFolders = Folder::where('parent_id', $folder->id)->get();
-        $ancestors = $folder->ancestors()->get()->toArray();
-        $sidebarFolders = SidebarFolder::where('user_id', Auth::id())->get();
 
-        if (count($ancestors) > 2) {
-            $ancestors = [...array_slice($ancestors, 0, 1), ...array_slice($ancestors, -2)];
+        $lastUsedTags = $request->user()->tags()->orderBy('created_at', 'DESC')->limit(8)->get();
+        $childFolders = Folder::where('parent_id', $folder->id)->get();
+        $sidebarFolders = SidebarFolder::where('user_id', Auth::id())->get();
+        $ancestors = $folder->ancestors()->get();
+
+        // takes the first and last two elements
+        if ($ancestors->count() > 2) {
+            $ancestors = $ancestors->take(1)->merge($ancestors->take(-2));
         }
 
+
         return Inertia::render('explorer/Folder', [
-            'folder' => $folder->only(['name', 'id', 'created_at']),
+            'folder' => $folder,
             'childFolders' => $childFolders->map->only(['name', 'id', 'created_at']),
-            'links' => $folder->links->map->except(['user_id']),
-            'ancestorFolders' => $ancestors,
+            'ancestorFolders' => $ancestors->map->only(['name', 'id', 'created_at']),
             'previousFolderId' => $folder->parent_id,
             'sidebarFolderIds' => $sidebarFolders->map->only(['folder_id']),
+            'lastUsedTags' => $lastUsedTags->map->only(['name'])
         ]);
     }
 

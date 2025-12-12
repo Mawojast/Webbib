@@ -34,6 +34,7 @@ const submit = () => {
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="p-3">
             <div class="flex justify-end">
+                <div class="flex justify-center w-full text-xl font-bold">New Dashboard Link</div>
                 <Link :href="dashboard.index()">
                     <X />
                 </Link>
@@ -41,12 +42,12 @@ const submit = () => {
             <form @submit.prevent="submit" class="space-y-6">
                 <div class="grid gap-5 py-4">
                     <div>
-                        <Label for="url">Url</Label>
+                        <Label for="url" class="pb-2">Url</Label>
                         <Input id="url" v-model="createForm.url" required placeholder="https://example.com" />
                         <InputError :message="createForm.errors.url" />
                     </div>
                     <div>
-                        <Label for="title">Title</Label>
+                        <Label for="title" class="pb-2">Title</Label>
                         <Input id="title" v-model="createForm.title" placeholder="Title" />
                         <InputError :message="createForm.errors.title" />
                     </div>

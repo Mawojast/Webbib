@@ -35,9 +35,9 @@ class UpdateFolderRequest extends FormRequest
     {
         return [
             'name.required' => 'Name is required',
-            'name.string' => 'Der Name muss aus Buchstaben bestehen.',
-            'name.unique' => 'Bereits vorhanden.',
-            'name.max' => 'Maximal 32 Zeichen',
+            'name.string' => 'Usernames may only contain alphanumeric characters.',
+            'name.unique' => 'Folder does not exist.',
+            'name.max' => 'Maximum 32 characters allowed.',
         ];
     }
 

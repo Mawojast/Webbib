@@ -36,7 +36,7 @@ withDefaults(
                 <Link
                     v-if="$page.props.auth.user"
                     :href="dashboard.index()"
-                    class="bg-white text-sm text-gray-800  rounded  py-2 px-4 shadow-lg"
+                    class="bg-white text-sm text-gray-800  rounded  py-2 px-4 shadow-lg font-bold"
                 >
                     Dashboard
                 </Link>
@@ -122,7 +122,7 @@ withDefaults(
                     <path fill="#f3f4f5" fill-opacity="0.5" d="M0,64L40,90.7C80,117,160,171,240,197.3C320,224,400,224,480,202.7C560,181,640,139,720,133.3C800,128,880,160,960,176C1040,192,1120,192,1200,197.3C1280,203,1360,213,1400,218.7L1440,224L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
                 </svg>
             </div>
-            <h1 class="w-full h- my-1 text-5xl font-bold leading-tight text-center bg-[#f3f4f5]/50 text-neutral-800">
+            <h1 class="w-full h- my-1 text-3xl font-bold leading-tight text-center bg-[#f3f4f5]/50 text-neutral-800">
                 <span>Webbib</span>
             </h1>
             <div class="w-full overflow-hidden leading-none">

@@ -33,12 +33,14 @@ class DashboardController extends Controller
             });
 
         $user = User::find(Auth::id());
+        $lastUsedTags = $user->tags()->orderBy('created_at', 'DESC')->limit(8)->get();
 
         return Inertia::render('dashboard/index', [
             'dashboards' => $dashboards->map->only(['id', 'title', 'url', 'position', 'created_at', 'image']),
             'user' => $user->only(['name', 'image', 'email_verified_at']),
             'mustVerifyEmail' => !$request->user()->hasVerifiedEmail(),
             'status' => $request->session()->get('status'),
+            'lastUsedTags' => $lastUsedTags,
         ]);
     }
 
@@ -66,6 +68,7 @@ class DashboardController extends Controller
             $data['user_id'] = $userId;
             $data['position'] = 1;
 
+            // increments the positions of user's dashboard to all over one
             Dashboard::where('user_id', $userId)
                 ->orderBy('position', 'desc')
                 ->increment('position');

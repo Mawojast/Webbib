@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Explorer;
+namespace App\Http\Requests\Link;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Rules\SecureUrlRule;
+use App\Rules\LinkTagsRule;
 
 class UpdateLinkRequest extends FormRequest
 {
@@ -39,8 +40,10 @@ class UpdateLinkRequest extends FormRequest
                 'max:120',
             ],
             'folder_id' => [
-                'required',
-                'integer'
+                'nullable'
+            ],
+            'tags' => [
+                new LinkTagsRule()
             ]
         ];
 

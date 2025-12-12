@@ -24,10 +24,16 @@ class LinkPolicy
         return $user->id === $link->folder->user_id;
     }
 
+
+    public function create(User $user): bool
+    {
+        return true;
+    }
+
     /**
-     * Determine whether the user can create models.
+     * Determine whether the user can create models assigned to a folder.
      */
-    public function create(User $user, Folder $folder): bool
+    public function createExplorerLink(User $user, Folder $folder): bool
     {
         return $user->id === $folder->user_id;
     }
@@ -35,9 +41,14 @@ class LinkPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Link $link): bool
+    public function updateExplorerLink(User $user, Link $link): bool
     {
         return $user->id === $link->folder->user_id;
+    }
+
+    public function update(User $user, Link $link): bool
+    {
+        return $user->id === $link->user_id;
     }
 
     /**
@@ -45,7 +56,16 @@ class LinkPolicy
      */
     public function delete(User $user, Link $link): bool
     {
-        return $user->id === $link->folder->user_id;
+        return $user->id === $link->user_id;
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function deleteLinks(User $user, array $links): bool
+    {
+        dd($links);
+        //return $user->id === $link->folder->user_id;
     }
 
     /**

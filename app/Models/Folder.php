@@ -21,6 +21,8 @@ class Folder extends Model
         'public'
     ];
 
+    protected $with = ['links', 'ancestors'];
+
     protected $hidden = [
         'user_id'
     ];

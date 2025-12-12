@@ -39,10 +39,10 @@ class UpdateExplorerRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Name is required',
-            'name.string' => 'Der Name muss aus Buchstaben bestehen.',
-            'name.exists' => 'Ordner existiert nicht.',
-            'name.max' => 'Maximal 32 Zeichen',
+            'name.required' => 'Username is required.',
+            'name.string' => 'Usernames may only contain alphanumeric characters.',
+            'name.exists' => 'Folder does not exist.',
+            'name.max' => 'Maximum 32 characters allowed.',
         ];
     }
 }
