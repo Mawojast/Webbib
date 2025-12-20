@@ -38,10 +38,10 @@ class UserFrontController extends Controller
         ]);
     }
 
-    public function indexFolder(User $user, Folder $folder): Response
+    public function indexFolder(User $user, Folder $folder, Request $request): Response
     {
         $ancestors = $folder->ancestors()->get()->toArray();
-
+        $lastUsedTags = $request->user()?->lastUsedTags()->get()->map->only(['name']);
         if (count($ancestors) > 2) {
             $ancestors = [...array_slice($ancestors, 0, 1), ...array_slice($ancestors, -2)];
         }
@@ -52,9 +52,10 @@ class UserFrontController extends Controller
             'links' =>$folder->links->map->only(['id', 'title', 'url', 'position', 'image']),
             'childFolders' => $folder->children->map->only(['id', 'name']),
             'profileImage' => '/profile_image/'.$user->image,
-            'folder' => $folder->only(['id', 'name']),
+            'folder' => $folder,
             'ancestors' => $ancestors,
             'previousFolderId' => $folder->parent_id,
+            'lastUsedTags' => $lastUsedTags
         ]);
 
     }

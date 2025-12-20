@@ -33,8 +33,7 @@ class DashboardController extends Controller
             });
 
         $user = User::find(Auth::id());
-        $lastUsedTags = $user->tags()->orderBy('created_at', 'DESC')->limit(8)->get();
-
+        $lastUsedTags = $request->user()->lastUsedTags()->get();
         return Inertia::render('dashboard/index', [
             'dashboards' => $dashboards->map->only(['id', 'title', 'url', 'position', 'created_at', 'image']),
             'user' => $user->only(['name', 'image', 'email_verified_at']),

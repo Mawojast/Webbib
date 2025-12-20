@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
 import FolderTileLayout from '@/layouts/explorer/folder/FolderTileLayout.vue';
-import { type BreadcrumbItem, SharedData, CreateLinkForm, FolderLink, Folder, ChildFolder, AncestorFolder, Tag } from '@/types';
+import { type BreadcrumbItem, SharedData, CreateLinkForm, FolderLink, Folder, ChildFolder, AncestorFolder, Tag, LinkForm } from '@/types';
 import { Head, Link, usePage, useForm, router } from '@inertiajs/vue3';
 import { Button } from '@/components/ui/button';
 import InputError from '@/components/InputError.vue';
@@ -40,6 +40,7 @@ const data = defineProps<{
     ancestorFolders: AncestorFolder[];
     lastUsedTags: Tag[]
 }>();
+const lastUsedTags = computed(() => data.lastUsedTags);
 
 const page = usePage<SharedData>();
 const title = data.folder.name+' - Webbib';
@@ -260,14 +261,14 @@ const deleteLink = (id: number) => {
                         />
                         <InputError :message="createLinkForm.errors.tags" />
                         <!-- Preview Tags -->
-                        <Accordion type="single" collapsible class="w-full" v-model="accordionValue" v-if="data.lastUsedTags.length">
+                        <Accordion type="single" collapsible class="w-full" v-model="accordionValue" v-if="lastUsedTags.length">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>Last Tags</AccordionTrigger>
                                 <AccordionContent>
                                     <div class="preview-tags-qs pt-2">
                                         <div class="preview-tags-list-qs flex flex-wrap gap-2">
                                             <TagBadge
-                                                v-for="previewTag in data.lastUsedTags"
+                                                v-for="previewTag in lastUsedTags"
                                                 :key="previewTag"
                                                 @click="addCreateFormTag(previewTag)"
                                                 :name="previewTag.name"
@@ -303,9 +304,9 @@ const deleteLink = (id: number) => {
                                 <Input id="title" v-model="editLinkForm.title" placeholder="Title" />
                                 <InputError :message="editLinkForm.errors.title" />
                                 <vue3-tags-input placeholder="Tags" :tags="editLinkForm.tags" @on-tags-changed="updateEditLinkTags" id="showHeaderLinkForm-tags-input" class=".tag-label"/>
-                                <InputError :message="createLinkForm.errors.tags" />
+                                <InputError :message="editLinkForm.errors.tags" />
                                 <!-- Preview Tags -->
-                                <Accordion type="single" collapsible class="w-full" v-model="accordionValue" v-if="data.lastUsedTags.length">
+                                <Accordion type="single" collapsible class="w-full" v-model="accordionValue" v-if="lastUsedTags.length">
                                     <AccordionItem value="item-1">
                                         <AccordionTrigger>Last Tags</AccordionTrigger>
                                         <AccordionContent>

@@ -24,7 +24,7 @@ class LinkController extends Controller
      */
     public function index(Request $request)
     {
-        $lastUsedTags = $request->user()->tags()->orderBy('created_at', 'DESC')->limit(8)->get();
+        $lastUsedTags = $request->user()->lastUsedTags()->get();
         $links = $request->user()
             ->links()
             ->with(['tags', 'folder:id,name'])

@@ -2,19 +2,27 @@
 import { Link, usePage, useForm, Head } from '@inertiajs/vue3';
 import { EllipsisVertical, ChevronLeft } from 'lucide-vue-next';
 import { ref, watch } from 'vue';
-import { type BreadcrumbItem, SharedData, ChildFolder, FolderLink, Folder, AncestorFolder } from '@/types';
+import { type BreadcrumbItem, SharedData, ChildFolder, FolderLink, Folder, AncestorFolder, LinkForm, Tag } from '@/types';
 import { Button } from '@/components/ui/button';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import LightDarkSwitch from '@/components/LightDarkSwitch.vue';
 import InputError from '@/components/InputError.vue';
 import { Input } from '@/components/ui/input';
 import TextLink from '@/components/TextLink.vue';
+import Vue3TagsInput from 'vue3-tags-input';
+import  TagBadge  from '@/components/Tag.vue';
 import {
     DropdownMenu,
     DropdownMenuTrigger,
     DropdownMenuContent,
     DropdownMenuItem
 } from '@/components/ui/dropdown-menu';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/ui/accordion'
 import {
     Dialog,
     DialogContent,
@@ -38,6 +46,7 @@ const data = defineProps<{
     folder: Folder;
     ancestors: AncestorFolder[];
     previousFolderId?: number;
+    lastUsedTags?: Tag[];
 }>();
 
 // Breadcrumbs assemble
@@ -51,39 +60,58 @@ const breadcrumbs: BreadcrumbItem[] = [
 ]
 
 const page = usePage<SharedData>();
+const accordionValue = ref<string>('');
 
 // Edit Link
-const editLinkForm = useForm({
-  url: '',
-  title: '',
-  folder_id: data.folder.id,
+const editLinkForm = useForm<LinkForm>({
+    url: '',
+    title: '',
+    tags: [],
+    folder_id: data.folder.id,
 });
 
-const isEditLinkDialogOpen = ref(false);
 const editingLinkId = ref(0);
-function openEditLinkDialog(url: string, title: string, id: number){
-    editLinkForm.url = url;
-    editLinkForm.title = title;
-    editingLinkId.value = id;
+const isEditLinkDialogOpen = ref(false);
+
+function openEditLinkDialog(link: FolderLink){
+    editLinkForm.url = link.url;
+    editLinkForm.title = link.title;
+    editLinkForm.tags = link.tags.map(t => t.name);
+    editingLinkId.value = link.id;
     isEditLinkDialogOpen.value = true;
 }
+
 const submitEditLink = () => {
     editLinkForm.put(explorer.link.update({link: editingLinkId.value}).url, {
-    preserveScroll: true,
-    onSuccess: () => {
-      isEditLinkDialogOpen.value = false;
-      editingLinkId.value = 0;
-      editLinkForm.reset();
-    },
-  });
+        preserveScroll: true,
+        onSuccess: () => {
+            isEditLinkDialogOpen.value = false;
+            editingLinkId.value = 0;
+            editLinkForm.reset();
+        },
+    });
+};
+
+const updateEditLinkTags = (newTags: []) => {
+    editLinkForm.tags = newTags;
+};
+
+const addEditFormTag = (tag: Tag) => {
+    const tagExists = editLinkForm.tags.some(t =>
+        t === tag.name
+    );
+    if (!tagExists) {
+        editLinkForm.tags.push(tag.name);
+    }
 };
 
 watch(isEditLinkDialogOpen, (newValue) => {
-  if (!newValue) {
-    editLinkForm.reset();
-    editLinkForm.clearErrors();
-    editingLinkId.value = 0;
-  }
+    if (!newValue) {
+        editLinkForm.reset();
+        editLinkForm.clearErrors();
+        editingLinkId.value = 0;
+        accordionValue.value = '';
+    }
 });
 
 // Delete Link
@@ -187,13 +215,35 @@ const title = data.folder.name+' - '+data.displayname;
                 <DialogContent class="sm:max-w-md animate-in fade-in-90 zoom-in-80 duration-200">
                     <form @submit.prevent="submitEditLink" class="space-y-6">
                         <DialogHeader>
-                            <DialogTitle>Edit Link</DialogTitle>
+                            <DialogTitle class="text-center p-2">Edit Link</DialogTitle>
                             <DialogDescription>
                                 <div class="grid gap-2">
                                     <Input id="url" v-model="editLinkForm.url" required placeholder="URL" />
                                     <InputError :message="editLinkForm.errors.url" />
                                     <Input id="title" v-model="editLinkForm.title" placeholder="Title" />
                                     <InputError :message="editLinkForm.errors.title" />
+                                    <vue3-tags-input placeholder="Tags" :tags="editLinkForm.tags" @on-tags-changed="updateEditLinkTags" id="showHeaderLinkForm-tags-input" class=".tag-label"/>
+                                <InputError :message="editLinkForm.errors.tags" />
+                                <!-- Preview Tags -->
+                                <Accordion type="single" collapsible class="w-full" v-model="accordionValue" v-if="lastUsedTags.length">
+                                    <AccordionItem value="item-1">
+                                        <AccordionTrigger>Last Tags</AccordionTrigger>
+                                        <AccordionContent>
+                                            <div class="preview-tags-qs pt-2">
+                                                <div class="preview-tags-list-qs flex flex-wrap gap-2">
+                                                    <TagBadge
+                                                        v-for="previewTag in data.lastUsedTags"
+                                                        :key="previewTag"
+                                                        @click="addEditFormTag(previewTag)"
+                                                        :name="previewTag.name"
+                                                    >
+                                                        {{ previewTag.name }}
+                                                    </TagBadge>
+                                                </div>
+                                            </div>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                </Accordion>
                                 </div>
                             </DialogDescription>
                         </DialogHeader>
@@ -206,9 +256,9 @@ const title = data.folder.name+' - '+data.displayname;
                 </DialogContent>
             </Dialog>
             <div class="col-span-12">
-                <section class="mt-8 grid justify-center" v-if="data.links.length">
+                <section class="mt-8 grid justify-center" v-if="data.folder.links.length">
                     <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5" v-if="data.links.length">
-                        <li v-for="link in data.links" :key="link.id">
+                        <li v-for="link in data.folder.links" :key="link.id">
                             <article class="max-w-sm rounded overflow-hidden shadow-lg relative p-4"><!--border dark:border-neutral-700-->
                                 <a :href="link.url" target="_blank" class="font-medium">
                                     <div class="flex items-center justify-center h-24">
@@ -226,7 +276,7 @@ const title = data.folder.name+' - '+data.displayname;
                                                 </button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent class="w-40" align="end">
-                                                <DropdownMenuItem as-child @click="openEditLinkDialog(link.url, link.title, link.id)">
+                                                <DropdownMenuItem as-child @click="openEditLinkDialog(link)">
                                                     <span>Edit</span>
                                                 </DropdownMenuItem>
                                                 <DropdownMenuItem @click="deleteLink(link.id)" class="text-red-500">

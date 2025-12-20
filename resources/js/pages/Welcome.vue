@@ -30,7 +30,15 @@ withDefaults(
     <header class="not-has-[nav]:hidden  w-full text-sm gradient sticky top-0  p-2 z-50">
         <nav class="flex items-center">
             <div class="flex justify-start">
-                <img src="/logo/logo_webbib_transparent.png" alt="webbib header logo" class=" h-9 ">
+                <img
+                    src="/logo/logo_webbib_transparent.png"
+                    alt="webbib header logo"
+                    width="36"
+                    height="36"
+                    loading="eager"
+                    decoding="async"
+                    class="object-contain"
+                >
             </div>
             <div class="flex justify-end w-full gap-4">
                 <Link
@@ -134,9 +142,9 @@ withDefaults(
             <div class=" container max-w-5xl mx-auto border-t-4 border-r-4 border-neutral-100 rounded-tr-lg gradient ">
                 <div class="flex flex-wrap justify-center items-center">
                     <div class="w-5/6 sm:w-1/2 p-6 pt-20 text-center ">
-                        <h3 class="text-3xl text-gray-100 font-bold leading-none mb-3 text-center">
+                        <h2 class="text-3xl text-gray-100 font-bold leading-none mb-3 text-center">
                             Save Links
-                        </h3>
+                        </h2>
                         <p class="text-neutral-100 mb-8 text-center font-medium text-2xl">
                             Create a personal dashboard to keep track of your frequently visited websites.
                         </p>

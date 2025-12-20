@@ -23,7 +23,7 @@ class FolderController extends Controller
     {
         Gate::authorize('view', $folder);
 
-        $lastUsedTags = $request->user()->tags()->orderBy('created_at', 'DESC')->limit(8)->get();
+        $lastUsedTags = $request->user()->lastUsedTags()->get();
         $childFolders = Folder::where('parent_id', $folder->id)->get();
         $sidebarFolders = SidebarFolder::where('user_id', Auth::id())->get();
         $ancestors = $folder->ancestors()->get();

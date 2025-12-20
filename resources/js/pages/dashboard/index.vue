@@ -29,20 +29,20 @@ const order = ref([...data.dashboards])
 const createForm = useForm({ url: '' , title: ''});
 const isCreateFormDialogOpen = ref(false);
 const submit = () => {
-  createForm.post(store.url(), {
-    preserveScroll: true,
-    onSuccess: (page) => {
-      isCreateFormDialogOpen.value = false;
-      createForm.reset();
-    },
-  });
+    createForm.post(store.url(), {
+        preserveScroll: true,
+        onSuccess: (page) => {
+            isCreateFormDialogOpen.value = false;
+            createForm.reset();
+        },
+    });
 };
 
 watch(isCreateFormDialogOpen, (newValue) => {
-  if (!newValue) {
-    createForm.reset();
-    createForm.clearErrors();
-  }
+    if (!newValue) {
+        createForm.reset();
+        createForm.clearErrors();
+    }
 });
 
 // Change position of dashboard link
@@ -61,24 +61,6 @@ function goToRouteCreateDashboard() {
     <Head title="Dashboard" />
 
     <AppLayout>
-        <!-- <div v-if="mustVerifyEmail && !user.email_verified_at">
-            <div class="space-y-4 rounded-lg border border-green-100 bg-green-50 p-4 dark:border-green-200/10 dark:bg-green-700/10">
-                <p class="text-sm text-muted-foreground">
-                    Your email address is unverified.
-                    <Link
-                        :href="route('verification.send')"
-                        method="post"
-                        as="button"
-                        class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:!decoration-current dark:decoration-neutral-500"
-                    >
-                        Click here to resend the verification email.
-                    </Link>
-                </p>
-            </div>
-            <div v-if="status === 'verification-link-sent'" class="mt-2 text-sm font-medium text-green-600">
-                A new verification link has been sent to your email address.
-            </div>
-        </div> -->
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <div class="flex w-full rounded-sm">
                 <div

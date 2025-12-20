@@ -7,6 +7,8 @@ import InputError from '@/components/InputError.vue';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { X } from 'lucide-vue-next';
+import { index, update } from '@/routes/explorer/link'
+
 
 const data = defineProps<{
     link: FolderLink
@@ -26,7 +28,7 @@ const editLinkForm = useForm({
 });
 
 const submit = () => {
-  editLinkForm.put(route('explorer.link.update', {link: data.link.id}), {
+  editLinkForm.put(update({link: data.link.id}).url, {
     preserveScroll: true,
   });
 };
@@ -38,7 +40,7 @@ const submit = () => {
 <AppLayout :breadcrumbs="breadcrumbs">
     <div class="p-3">
         <div class="flex justify-end">
-            <Link :href="route('explorer.folder.index', link.folder_id)">
+            <Link :href="index({link.folder_id}).url">
                 <X />
             </Link>
         </div>

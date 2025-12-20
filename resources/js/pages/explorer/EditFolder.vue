@@ -7,6 +7,7 @@ import InputError from '@/components/InputError.vue';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { X } from 'lucide-vue-next';
+import { index, update } from '@/routes/explorer/folder';
 
 
 const data = defineProps<{
@@ -21,14 +22,15 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 const editForm = useForm({
-  name: data.folder.name,
-  parent_id: data.folder.parent_id,
+    name: data.folder.name,
+    parent_id: data.folder.parent_id,
 });
 
 const submit = () => {
-  editForm.put(route('explorer.folder.update', {id: data.folder.id}), {
-    preserveScroll: true,
-  });
+
+    editForm.put(update({id: data.folder.id}).url, {
+        preserveScroll: true,
+    });
 };
 </script>
 
@@ -38,7 +40,7 @@ const submit = () => {
   <AppLayout :breadcrumbs="breadcrumbs">
     <div class="p-3">
         <div class="flex justify-end">
-            <Link :href="route('explorer.folder.index', data.folder.id)">
+            <Link :href="index(data.folder.parent_id).url">
                 <X />
             </Link>
         </div>

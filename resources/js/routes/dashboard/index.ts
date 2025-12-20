@@ -87,7 +87,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\DashboardController::create
-* @see app/Http/Controllers/DashboardController.php:50
+* @see app/Http/Controllers/DashboardController.php:49
 * @route '/dashboard/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -102,7 +102,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::create
-* @see app/Http/Controllers/DashboardController.php:50
+* @see app/Http/Controllers/DashboardController.php:49
 * @route '/dashboard/create'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -115,7 +115,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DashboardController::create
-* @see app/Http/Controllers/DashboardController.php:50
+* @see app/Http/Controllers/DashboardController.php:49
 * @route '/dashboard/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -125,7 +125,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\DashboardController::create
-* @see app/Http/Controllers/DashboardController.php:50
+* @see app/Http/Controllers/DashboardController.php:49
 * @route '/dashboard/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -135,7 +135,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\DashboardController::create
-* @see app/Http/Controllers/DashboardController.php:50
+* @see app/Http/Controllers/DashboardController.php:49
 * @route '/dashboard/create'
 */
 const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -145,7 +145,7 @@ const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 
 /**
 * @see \App\Http\Controllers\DashboardController::create
-* @see app/Http/Controllers/DashboardController.php:50
+* @see app/Http/Controllers/DashboardController.php:49
 * @route '/dashboard/create'
 */
 createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -155,7 +155,7 @@ createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\DashboardController::create
-* @see app/Http/Controllers/DashboardController.php:50
+* @see app/Http/Controllers/DashboardController.php:49
 * @route '/dashboard/create'
 */
 createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -172,7 +172,7 @@ create.form = createForm
 
 /**
 * @see \App\Http\Controllers\DashboardController::store
-* @see app/Http/Controllers/DashboardController.php:58
+* @see app/Http/Controllers/DashboardController.php:57
 * @route '/dashboard'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -187,7 +187,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::store
-* @see app/Http/Controllers/DashboardController.php:58
+* @see app/Http/Controllers/DashboardController.php:57
 * @route '/dashboard'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -200,7 +200,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DashboardController::store
-* @see app/Http/Controllers/DashboardController.php:58
+* @see app/Http/Controllers/DashboardController.php:57
 * @route '/dashboard'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -210,7 +210,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\DashboardController::store
-* @see app/Http/Controllers/DashboardController.php:58
+* @see app/Http/Controllers/DashboardController.php:57
 * @route '/dashboard'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -220,7 +220,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\DashboardController::store
-* @see app/Http/Controllers/DashboardController.php:58
+* @see app/Http/Controllers/DashboardController.php:57
 * @route '/dashboard'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -232,7 +232,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\DashboardController::show
-* @see app/Http/Controllers/DashboardController.php:87
+* @see app/Http/Controllers/DashboardController.php:86
 * @route '/dashboard/{dashboard}'
 */
 export const show = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -247,7 +247,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::show
-* @see app/Http/Controllers/DashboardController.php:87
+* @see app/Http/Controllers/DashboardController.php:86
 * @route '/dashboard/{dashboard}'
 */
 show.url = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -281,7 +281,7 @@ show.url = (args: { dashboard: number | { id: number } } | [dashboard: number | 
 
 /**
 * @see \App\Http\Controllers\DashboardController::show
-* @see app/Http/Controllers/DashboardController.php:87
+* @see app/Http/Controllers/DashboardController.php:86
 * @route '/dashboard/{dashboard}'
 */
 show.get = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -291,7 +291,7 @@ show.get = (args: { dashboard: number | { id: number } } | [dashboard: number | 
 
 /**
 * @see \App\Http\Controllers\DashboardController::show
-* @see app/Http/Controllers/DashboardController.php:87
+* @see app/Http/Controllers/DashboardController.php:86
 * @route '/dashboard/{dashboard}'
 */
 show.head = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -301,7 +301,7 @@ show.head = (args: { dashboard: number | { id: number } } | [dashboard: number |
 
 /**
 * @see \App\Http\Controllers\DashboardController::show
-* @see app/Http/Controllers/DashboardController.php:87
+* @see app/Http/Controllers/DashboardController.php:86
 * @route '/dashboard/{dashboard}'
 */
 const showForm = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -311,7 +311,7 @@ const showForm = (args: { dashboard: number | { id: number } } | [dashboard: num
 
 /**
 * @see \App\Http\Controllers\DashboardController::show
-* @see app/Http/Controllers/DashboardController.php:87
+* @see app/Http/Controllers/DashboardController.php:86
 * @route '/dashboard/{dashboard}'
 */
 showForm.get = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -321,7 +321,7 @@ showForm.get = (args: { dashboard: number | { id: number } } | [dashboard: numbe
 
 /**
 * @see \App\Http\Controllers\DashboardController::show
-* @see app/Http/Controllers/DashboardController.php:87
+* @see app/Http/Controllers/DashboardController.php:86
 * @route '/dashboard/{dashboard}'
 */
 showForm.head = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -338,7 +338,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\DashboardController::edit
-* @see app/Http/Controllers/DashboardController.php:95
+* @see app/Http/Controllers/DashboardController.php:94
 * @route '/dashboard/{dashboard}/edit'
 */
 export const edit = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -353,7 +353,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::edit
-* @see app/Http/Controllers/DashboardController.php:95
+* @see app/Http/Controllers/DashboardController.php:94
 * @route '/dashboard/{dashboard}/edit'
 */
 edit.url = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -387,7 +387,7 @@ edit.url = (args: { dashboard: number | { id: number } } | [dashboard: number | 
 
 /**
 * @see \App\Http\Controllers\DashboardController::edit
-* @see app/Http/Controllers/DashboardController.php:95
+* @see app/Http/Controllers/DashboardController.php:94
 * @route '/dashboard/{dashboard}/edit'
 */
 edit.get = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -397,7 +397,7 @@ edit.get = (args: { dashboard: number | { id: number } } | [dashboard: number | 
 
 /**
 * @see \App\Http\Controllers\DashboardController::edit
-* @see app/Http/Controllers/DashboardController.php:95
+* @see app/Http/Controllers/DashboardController.php:94
 * @route '/dashboard/{dashboard}/edit'
 */
 edit.head = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -407,7 +407,7 @@ edit.head = (args: { dashboard: number | { id: number } } | [dashboard: number |
 
 /**
 * @see \App\Http\Controllers\DashboardController::edit
-* @see app/Http/Controllers/DashboardController.php:95
+* @see app/Http/Controllers/DashboardController.php:94
 * @route '/dashboard/{dashboard}/edit'
 */
 const editForm = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -417,7 +417,7 @@ const editForm = (args: { dashboard: number | { id: number } } | [dashboard: num
 
 /**
 * @see \App\Http\Controllers\DashboardController::edit
-* @see app/Http/Controllers/DashboardController.php:95
+* @see app/Http/Controllers/DashboardController.php:94
 * @route '/dashboard/{dashboard}/edit'
 */
 editForm.get = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -427,7 +427,7 @@ editForm.get = (args: { dashboard: number | { id: number } } | [dashboard: numbe
 
 /**
 * @see \App\Http\Controllers\DashboardController::edit
-* @see app/Http/Controllers/DashboardController.php:95
+* @see app/Http/Controllers/DashboardController.php:94
 * @route '/dashboard/{dashboard}/edit'
 */
 editForm.head = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -444,7 +444,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\DashboardController::update
-* @see app/Http/Controllers/DashboardController.php:106
+* @see app/Http/Controllers/DashboardController.php:105
 * @route '/dashboard/{dashboard}'
 */
 export const update = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -459,7 +459,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::update
-* @see app/Http/Controllers/DashboardController.php:106
+* @see app/Http/Controllers/DashboardController.php:105
 * @route '/dashboard/{dashboard}'
 */
 update.url = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -493,7 +493,7 @@ update.url = (args: { dashboard: number | { id: number } } | [dashboard: number 
 
 /**
 * @see \App\Http\Controllers\DashboardController::update
-* @see app/Http/Controllers/DashboardController.php:106
+* @see app/Http/Controllers/DashboardController.php:105
 * @route '/dashboard/{dashboard}'
 */
 update.put = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -503,7 +503,7 @@ update.put = (args: { dashboard: number | { id: number } } | [dashboard: number 
 
 /**
 * @see \App\Http\Controllers\DashboardController::update
-* @see app/Http/Controllers/DashboardController.php:106
+* @see app/Http/Controllers/DashboardController.php:105
 * @route '/dashboard/{dashboard}'
 */
 update.patch = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -513,7 +513,7 @@ update.patch = (args: { dashboard: number | { id: number } } | [dashboard: numbe
 
 /**
 * @see \App\Http\Controllers\DashboardController::update
-* @see app/Http/Controllers/DashboardController.php:106
+* @see app/Http/Controllers/DashboardController.php:105
 * @route '/dashboard/{dashboard}'
 */
 const updateForm = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -528,7 +528,7 @@ const updateForm = (args: { dashboard: number | { id: number } } | [dashboard: n
 
 /**
 * @see \App\Http\Controllers\DashboardController::update
-* @see app/Http/Controllers/DashboardController.php:106
+* @see app/Http/Controllers/DashboardController.php:105
 * @route '/dashboard/{dashboard}'
 */
 updateForm.put = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -543,7 +543,7 @@ updateForm.put = (args: { dashboard: number | { id: number } } | [dashboard: num
 
 /**
 * @see \App\Http\Controllers\DashboardController::update
-* @see app/Http/Controllers/DashboardController.php:106
+* @see app/Http/Controllers/DashboardController.php:105
 * @route '/dashboard/{dashboard}'
 */
 updateForm.patch = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -560,7 +560,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\DashboardController::destroy
-* @see app/Http/Controllers/DashboardController.php:157
+* @see app/Http/Controllers/DashboardController.php:156
 * @route '/dashboard/{dashboard}'
 */
 export const destroy = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -575,7 +575,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::destroy
-* @see app/Http/Controllers/DashboardController.php:157
+* @see app/Http/Controllers/DashboardController.php:156
 * @route '/dashboard/{dashboard}'
 */
 destroy.url = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -609,7 +609,7 @@ destroy.url = (args: { dashboard: number | { id: number } } | [dashboard: number
 
 /**
 * @see \App\Http\Controllers\DashboardController::destroy
-* @see app/Http/Controllers/DashboardController.php:157
+* @see app/Http/Controllers/DashboardController.php:156
 * @route '/dashboard/{dashboard}'
 */
 destroy.delete = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -619,7 +619,7 @@ destroy.delete = (args: { dashboard: number | { id: number } } | [dashboard: num
 
 /**
 * @see \App\Http\Controllers\DashboardController::destroy
-* @see app/Http/Controllers/DashboardController.php:157
+* @see app/Http/Controllers/DashboardController.php:156
 * @route '/dashboard/{dashboard}'
 */
 const destroyForm = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -634,7 +634,7 @@ const destroyForm = (args: { dashboard: number | { id: number } } | [dashboard: 
 
 /**
 * @see \App\Http\Controllers\DashboardController::destroy
-* @see app/Http/Controllers/DashboardController.php:157
+* @see app/Http/Controllers/DashboardController.php:156
 * @route '/dashboard/{dashboard}'
 */
 destroyForm.delete = (args: { dashboard: number | { id: number } } | [dashboard: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

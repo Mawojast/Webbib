@@ -12,20 +12,20 @@ import explorer from '@/routes/explorer';
 import folder from '@/routes/explorer/folder';
 import TagBadge from '@/components/Tag.vue'
 import type {
-  ColumnDef,
-  ColumnFiltersState,
-  ExpandedState,
-  SortingState,
-  VisibilityState,
+    ColumnDef,
+    ColumnFiltersState,
+    ExpandedState,
+    SortingState,
+    VisibilityState,
 } from '@tanstack/vue-table'
 import {
-  FlexRender,
-  getCoreRowModel,
-  getExpandedRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
+    FlexRender,
+    getCoreRowModel,
+    getExpandedRowModel,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+    useVueTable,
 } from '@tanstack/vue-table'
 import {
     Accordion,
@@ -34,13 +34,13 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+    Card,
+    CardAction,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
 } from '@/components/ui/card'
 import { createReusableTemplate } from '@vueuse/core'
 import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
@@ -49,13 +49,13 @@ import { valueUpdater }  from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
     Dialog,
@@ -678,7 +678,7 @@ const deleteLink = (id: number) => {
                                                         <div class="preview-tags">
                                                             <div class="preview-tags-list flex flex-wrap gap-2">
                                                                 <TagBadge
-                                                                    v-for="previewTag in lastUsedTags"
+                                                                    v-for="previewTag in props.lastUsedTags"
                                                                     :key="previewTag"
                                                                     @click="addEditFormTag(previewTag)"
                                                                     :name="previewTag.name"

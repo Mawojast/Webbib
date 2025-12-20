@@ -30,21 +30,21 @@ createInertiaApp({
         vueApp.use(plugin);
         vueApp.mount(el);
 
-        const { toast } = useToast();
+        // const { toast } = useToast();
 
-        router.on('invalid', (event) => {
-            event.preventDefault();
-            const status = event?.detail?.response?.status ?? null;
+        // router.on('invalid', (event) => {
+        //     event.preventDefault();
+        //     const status = event?.detail?.response?.status ?? null;
 
-            if ([429, 419, 401].includes(status)) {
-                return;
-            }
-            toast({
-                title: 'Error',
-                description: 'An error has occured',
-                variant: 'destructive',
-            });
-        });
+        //     if ([429, 419, 401].includes(status)) {
+        //         return;
+        //     }
+        //     toast({
+        //         title: 'Error',
+        //         description: 'An error has occured',
+        //         variant: 'destructive',
+        //     });
+        // });
     },
     progress: {
         color: '#4B5563',

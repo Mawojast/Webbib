@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref, watch } from 'vue'
 import Vue3TagsInput from 'vue3-tags-input'
 import { useForm } from '@inertiajs/vue3'
 import { Tag, CreateLinkForm } from '@/types'
@@ -21,14 +21,15 @@ const data = defineProps<{
     lastUsedTags: Tag[]
 }>();
 
-const lastUsedTags = computed(() => data.lastUsedTags);
+const lastUsedTags = ref<Tag[]>([...data.lastUsedTags]);
+
 // Create new Link
 const isCreateLinkDialogOpen = ref(false);
 
 const createLinkForm = useForm<CreateLinkForm>({
-    url: '',
-    title: '',
-    tags: [],
+  url: '',
+  title: '',
+  tags: [] as string[],
 });
 
 const submitLink = () => {
@@ -37,6 +38,31 @@ const submitLink = () => {
         onSuccess: () => {
             isCreateLinkDialogOpen.value = false;
             tagsAccordion.value = '';
+
+            const newTags: Tag[] = [...createLinkForm.tags]
+                .reverse()
+                .map(name => ({
+                        name,
+                    })
+                );
+
+            const seen = new Set<string>();
+
+            const merged: Tag[] = [
+                ...newTags,
+                ...lastUsedTags.value,
+            ]
+            .filter(tag => {
+                if (!tag.name) return false;
+                if (seen.has(tag.name)) return false;
+
+                seen.add(tag.name);
+                return true;
+            })
+            .slice(0, 8);
+
+            lastUsedTags.value.splice(0, lastUsedTags.value.length, ...merged);
+
             createLinkForm.reset();
         },
     });

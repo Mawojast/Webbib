@@ -139,7 +139,17 @@ class User extends Authenticatable implements MustVerifyEmail
         return Tag::select('tags.*')
             ->join('links_tags', 'links_tags.tag_id', '=', 'tags.id')
             ->join('links', 'links.id', '=', 'links_tags.link_id')
-            ->where('links.user_id', $this->id)
-            ->distinct();
+            ->where('links.user_id', $this->id);
+    }
+
+    
+    public function lastUsedTags(int $limit = 8)
+    {
+        return $this->tags()
+            ->select('tags.id', 'tags.name')
+            ->selectRaw('MAX(links_tags.created_at) as last_used_at')
+            ->groupBy('tags.id', 'tags.name')
+            ->orderByDesc('last_used_at')
+            ->limit($limit);
     }
 }
