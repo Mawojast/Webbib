@@ -28,7 +28,7 @@ const imageSrc = (paths.some( path => path === page.url))
             <div class="flex flex-col gap-8">
                 <div class="flex flex-col items-center gap-4">
                     <Link
-                        :href="dashboard.index()"
+                        href="/"
                         class="flex flex-col items-center gap-2 font-medium"
                     >
                         <div class="mb-1 flex h-24 w-24 items-center justify-center rounded-md">
