@@ -138,14 +138,14 @@ class LinkController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Link $link)
-    {
-        Gate::authorize('update', $link);
+    // public function edit(Link $link)
+    // {
+    //     Gate::authorize('update', $link);
 
-        return Inertia::render('explorer/EditLink', [
-            'link' => $link->only('title', 'id', 'url', 'created_at', 'folder_id'),
-        ]);
-    }
+    //     return Inertia::render('explorer/EditLink', [
+    //         'link' => $link->only('title', 'id', 'url', 'created_at', 'folder_id'),
+    //     ]);
+    // }
 
     /**
      * Update the specified resource in storage.
