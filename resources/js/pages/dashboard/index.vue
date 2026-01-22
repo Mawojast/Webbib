@@ -85,30 +85,23 @@ function goToRouteCreateDashboard() {
                     <Plus />
                 </Button>
             </div>
-
             <!-- Dashboard placeholder -->
-            <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 justify-center" v-if="!data.dashboards.length">
-                <li class="relative p-4 rounded-md bg-gradient-to-b from-[#e9e9e9] to-[#eeebeb] shadow-sm dark:from-[#272525] dark:to-[#272727] select-none text-center" >
-                    <a :href="create.url()" class="font-medium">
-                    <div class="flex items-start gap-4 justify-center">
-                        <div class="w-full overflow-hidden place-items-center">
-                            <div class="space-y-1 min-h-16  gird">
-                                <div class="place-items-center">
-                                    <div class="w-10 h-10  border place-content-center place-items-center rounded border-neutral-400">
-                                        <Plus class="text-neutral-400" />
-                                    </div>
-
-                                </div>
-                                <div class="py-1 min-h-8">
-                                    <span class="text-neutral-400">Website</span>
-                                </div>
+            <ul class="flex flex-wrap gap-x-8 gap-y-4" v-if="!data.dashboards.length">
+                <li>
+                    <div class="w-44 rounded-md bg-gradient-to-b from-[#e9e9e9] to-[#eeebeb] shadow-sm dark:from-[#272525] dark:to-[#272727]">
+                        <a :href="create.url()" class="cursor-pointer font-medium">
+                        <div class="flex flex-col items-center justify-center min-h-20 px-2 text-center break-all select-none p-4">
+                            <div class="border border-neutral-400 p-1 rounded">
+                                <Plus class="text-neutral-400" />
+                            </div>
+                            <div class="p-2 min-h-8">
+                                <span class="text-neutral-400">Website</span>
                             </div>
                         </div>
+                        </a>
                     </div>
-                    </a>
                 </li>
             </ul>
-
             <!-- Dashbard tile layout -->
             <DashboardTileLayout :dashboards="order" :positionMode="positionMode" v-if="data.dashboards.length"/>
         </div>

@@ -47,7 +47,7 @@ const data = defineProps(['htmlText']);
     </div>
 </header>
 <main>
-    <div class="imprint-content raw-html text-neutral-100">
+    <div class="imprint-content raw-html">
         <h1>Imprint</h1>
 
         <h3>Webbib</h3>
