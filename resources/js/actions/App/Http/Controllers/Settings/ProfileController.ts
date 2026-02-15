@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
-* @see app/Http/Controllers/Settings/ProfileController.php:22
+* @see app/Http/Controllers/Settings/ProfileController.php:23
 * @route '/settings/profile'
 */
 export const edit = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
-* @see app/Http/Controllers/Settings/ProfileController.php:22
+* @see app/Http/Controllers/Settings/ProfileController.php:23
 * @route '/settings/profile'
 */
 edit.url = (options?: RouteQueryOptions) => {
@@ -29,7 +29,7 @@ edit.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
-* @see app/Http/Controllers/Settings/ProfileController.php:22
+* @see app/Http/Controllers/Settings/ProfileController.php:23
 * @route '/settings/profile'
 */
 edit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -39,7 +39,7 @@ edit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
-* @see app/Http/Controllers/Settings/ProfileController.php:22
+* @see app/Http/Controllers/Settings/ProfileController.php:23
 * @route '/settings/profile'
 */
 edit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -49,7 +49,7 @@ edit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
-* @see app/Http/Controllers/Settings/ProfileController.php:22
+* @see app/Http/Controllers/Settings/ProfileController.php:23
 * @route '/settings/profile'
 */
 const editForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -59,7 +59,7 @@ const editForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
-* @see app/Http/Controllers/Settings/ProfileController.php:22
+* @see app/Http/Controllers/Settings/ProfileController.php:23
 * @route '/settings/profile'
 */
 editForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -69,7 +69,7 @@ editForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::edit
-* @see app/Http/Controllers/Settings/ProfileController.php:22
+* @see app/Http/Controllers/Settings/ProfileController.php:23
 * @route '/settings/profile'
 */
 editForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,7 +86,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::update
-* @see app/Http/Controllers/Settings/ProfileController.php:77
+* @see app/Http/Controllers/Settings/ProfileController.php:104
 * @route '/settings/profile'
 */
 export const update = (options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -101,7 +101,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::update
-* @see app/Http/Controllers/Settings/ProfileController.php:77
+* @see app/Http/Controllers/Settings/ProfileController.php:104
 * @route '/settings/profile'
 */
 update.url = (options?: RouteQueryOptions) => {
@@ -114,7 +114,7 @@ update.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::update
-* @see app/Http/Controllers/Settings/ProfileController.php:77
+* @see app/Http/Controllers/Settings/ProfileController.php:104
 * @route '/settings/profile'
 */
 update.patch = (options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -124,7 +124,7 @@ update.patch = (options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::update
-* @see app/Http/Controllers/Settings/ProfileController.php:77
+* @see app/Http/Controllers/Settings/ProfileController.php:104
 * @route '/settings/profile'
 */
 const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -139,7 +139,7 @@ const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =>
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::update
-* @see app/Http/Controllers/Settings/ProfileController.php:77
+* @see app/Http/Controllers/Settings/ProfileController.php:104
 * @route '/settings/profile'
 */
 updateForm.patch = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -156,7 +156,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::destroy
-* @see app/Http/Controllers/Settings/ProfileController.php:106
+* @see app/Http/Controllers/Settings/ProfileController.php:129
 * @route '/settings/profile'
 */
 export const destroy = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -171,7 +171,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::destroy
-* @see app/Http/Controllers/Settings/ProfileController.php:106
+* @see app/Http/Controllers/Settings/ProfileController.php:129
 * @route '/settings/profile'
 */
 destroy.url = (options?: RouteQueryOptions) => {
@@ -184,7 +184,7 @@ destroy.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::destroy
-* @see app/Http/Controllers/Settings/ProfileController.php:106
+* @see app/Http/Controllers/Settings/ProfileController.php:129
 * @route '/settings/profile'
 */
 destroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -194,7 +194,7 @@ destroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::destroy
-* @see app/Http/Controllers/Settings/ProfileController.php:106
+* @see app/Http/Controllers/Settings/ProfileController.php:129
 * @route '/settings/profile'
 */
 const destroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -209,7 +209,7 @@ const destroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> =
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::destroy
-* @see app/Http/Controllers/Settings/ProfileController.php:106
+* @see app/Http/Controllers/Settings/ProfileController.php:129
 * @route '/settings/profile'
 */
 destroyForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -311,7 +311,7 @@ imageEdit.form = imageEditForm
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageUpdate
-* @see app/Http/Controllers/Settings/ProfileController.php:47
+* @see app/Http/Controllers/Settings/ProfileController.php:58
 * @route '/settings/profile/image'
 */
 export const imageUpdate = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -326,7 +326,7 @@ imageUpdate.definition = {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageUpdate
-* @see app/Http/Controllers/Settings/ProfileController.php:47
+* @see app/Http/Controllers/Settings/ProfileController.php:58
 * @route '/settings/profile/image'
 */
 imageUpdate.url = (options?: RouteQueryOptions) => {
@@ -339,7 +339,7 @@ imageUpdate.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageUpdate
-* @see app/Http/Controllers/Settings/ProfileController.php:47
+* @see app/Http/Controllers/Settings/ProfileController.php:58
 * @route '/settings/profile/image'
 */
 imageUpdate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -349,7 +349,7 @@ imageUpdate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageUpdate
-* @see app/Http/Controllers/Settings/ProfileController.php:47
+* @see app/Http/Controllers/Settings/ProfileController.php:58
 * @route '/settings/profile/image'
 */
 const imageUpdateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -359,7 +359,7 @@ const imageUpdateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageUpdate
-* @see app/Http/Controllers/Settings/ProfileController.php:47
+* @see app/Http/Controllers/Settings/ProfileController.php:58
 * @route '/settings/profile/image'
 */
 imageUpdateForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -371,7 +371,7 @@ imageUpdate.form = imageUpdateForm
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageDestroy
-* @see app/Http/Controllers/Settings/ProfileController.php:90
+* @see app/Http/Controllers/Settings/ProfileController.php:113
 * @route '/settings/profile/image'
 */
 export const imageDestroy = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -386,7 +386,7 @@ imageDestroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageDestroy
-* @see app/Http/Controllers/Settings/ProfileController.php:90
+* @see app/Http/Controllers/Settings/ProfileController.php:113
 * @route '/settings/profile/image'
 */
 imageDestroy.url = (options?: RouteQueryOptions) => {
@@ -399,7 +399,7 @@ imageDestroy.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageDestroy
-* @see app/Http/Controllers/Settings/ProfileController.php:90
+* @see app/Http/Controllers/Settings/ProfileController.php:113
 * @route '/settings/profile/image'
 */
 imageDestroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -409,7 +409,7 @@ imageDestroy.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> =
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageDestroy
-* @see app/Http/Controllers/Settings/ProfileController.php:90
+* @see app/Http/Controllers/Settings/ProfileController.php:113
 * @route '/settings/profile/image'
 */
 const imageDestroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -424,7 +424,7 @@ const imageDestroyForm = (options?: RouteQueryOptions): RouteFormDefinition<'pos
 
 /**
 * @see \App\Http\Controllers\Settings\ProfileController::imageDestroy
-* @see app/Http/Controllers/Settings/ProfileController.php:90
+* @see app/Http/Controllers/Settings/ProfileController.php:113
 * @route '/settings/profile/image'
 */
 imageDestroyForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -439,6 +439,151 @@ imageDestroyForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'po
 
 imageDestroy.form = imageDestroyForm
 
-const ProfileController = { edit, update, destroy, imageEdit, imageUpdate, imageDestroy }
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailEdit
+* @see app/Http/Controllers/Settings/ProfileController.php:46
+* @route '/settings/profile/email'
+*/
+export const emailEdit = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: emailEdit.url(options),
+    method: 'get',
+})
+
+emailEdit.definition = {
+    methods: ["get","head"],
+    url: '/settings/profile/email',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailEdit
+* @see app/Http/Controllers/Settings/ProfileController.php:46
+* @route '/settings/profile/email'
+*/
+emailEdit.url = (options?: RouteQueryOptions) => {
+
+
+
+
+    return emailEdit.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailEdit
+* @see app/Http/Controllers/Settings/ProfileController.php:46
+* @route '/settings/profile/email'
+*/
+emailEdit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: emailEdit.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailEdit
+* @see app/Http/Controllers/Settings/ProfileController.php:46
+* @route '/settings/profile/email'
+*/
+emailEdit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: emailEdit.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailEdit
+* @see app/Http/Controllers/Settings/ProfileController.php:46
+* @route '/settings/profile/email'
+*/
+const emailEditForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: emailEdit.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailEdit
+* @see app/Http/Controllers/Settings/ProfileController.php:46
+* @route '/settings/profile/email'
+*/
+emailEditForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: emailEdit.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailEdit
+* @see app/Http/Controllers/Settings/ProfileController.php:46
+* @route '/settings/profile/email'
+*/
+emailEditForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: emailEdit.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+emailEdit.form = emailEditForm
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailUpdate
+* @see app/Http/Controllers/Settings/ProfileController.php:87
+* @route '/settings/profile/email'
+*/
+export const emailUpdate = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: emailUpdate.url(options),
+    method: 'post',
+})
+
+emailUpdate.definition = {
+    methods: ["post"],
+    url: '/settings/profile/email',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailUpdate
+* @see app/Http/Controllers/Settings/ProfileController.php:87
+* @route '/settings/profile/email'
+*/
+emailUpdate.url = (options?: RouteQueryOptions) => {
+
+
+
+
+    return emailUpdate.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailUpdate
+* @see app/Http/Controllers/Settings/ProfileController.php:87
+* @route '/settings/profile/email'
+*/
+emailUpdate.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: emailUpdate.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailUpdate
+* @see app/Http/Controllers/Settings/ProfileController.php:87
+* @route '/settings/profile/email'
+*/
+const emailUpdateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: emailUpdate.url(options),
+    method: 'post',
+})
+
+/**
+* @see \App\Http\Controllers\Settings\ProfileController::emailUpdate
+* @see app/Http/Controllers/Settings/ProfileController.php:87
+* @route '/settings/profile/email'
+*/
+emailUpdateForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    action: emailUpdate.url(options),
+    method: 'post',
+})
+
+emailUpdate.form = emailUpdateForm
+
+const ProfileController = { edit, update, destroy, imageEdit, imageUpdate, imageDestroy, emailEdit, emailUpdate }
 
 export default ProfileController

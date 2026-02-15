@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\Settings\ProfileUpdateRequest;
 use App\Http\Requests\Settings\ProfileImageUpdateRequest;
+use App\Http\Requests\Settings\ProfileEmailUpdateRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,7 +22,6 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
-        $user = User::findOrFail(Auth::id());
         return Inertia::render('settings/Profile', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => $request->session()->get('status'),
@@ -33,16 +33,27 @@ class ProfileController extends Controller
      */
     public function imageEdit(Request $request): Response
     {
-        $user = User::findOrFail(Auth::id());
         return Inertia::render('settings/ProfileImage', [
-            'user' => $user->only('name', 'image', 'email'),
-            'profileImage' => $user->getImageUrl(),
+            'user' => $request->user()->only('name', 'image', 'email'),
+            'profileImage' => $request->user()->getImageUrl(),
+        ]);
+
+    }
+
+        /**
+     * Show the user's profile settings page.
+     */
+    public function emailEdit(Request $request): Response
+    {
+        return Inertia::render('settings/ProfileEmail', [
+            'user' => $request->user()->only('name', 'email'),
+            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
         ]);
 
     }
 
     /**
-     * Update the user's profile information.
+     * Update the user's profile image.
      */
     public function imageUpdate(ProfileImageUpdateRequest $request)
     {
@@ -68,6 +79,22 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.image.edit');
 
+    }
+
+    /**
+     * Update the user's profile email.
+     */
+    public function emailUpdate(ProfileEmailUpdateRequest $request)
+    {
+        $request->user()->fill($request->validated());
+
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
+
+        $request->user()->save();
+
+        return to_route('profile.edit');
 
     }
 
@@ -77,10 +104,6 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
 
         $request->user()->save();
 

@@ -17,6 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::post('settings/profile/image', [ProfileController::class, 'imageUpdate'])->name('profile.image.update');
     Route::delete('settings/profile/image', [ProfileController::class, 'imageDestroy'])->name('profile.image.destroy');
 
+    Route::get('settings/profile/email', [ProfileController::class, 'emailEdit'])->middleware('password.confirm')->name('profile.email.edit');
+    Route::post('settings/profile/email', [ProfileController::class, 'emailUpdate'])->name('profile.email.update');
+
     Route::get('settings/password', [PasswordController::class, 'edit'])->name('user-password.edit');
 
     Route::put('settings/password', [PasswordController::class, 'update'])

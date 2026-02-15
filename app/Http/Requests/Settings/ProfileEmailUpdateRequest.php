@@ -3,13 +3,10 @@
 namespace App\Http\Requests\Settings;
 
 use App\Models\User;
-use App\Models\ForbiddenUsername;
-use App\Rules\ValidUsernameRule;
-use App\Rules\DisplaynameHasUsernameRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ProfileUpdateRequest extends FormRequest
+class ProfileEmailUpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -19,17 +16,13 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => [
+            'email' => [
                 'required',
                 'string',
+                'lowercase',
+                'email',
+                'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
-                new ValidUsernameRule(new ForbiddenUsername()),
-            ],
-            'display_name' => [
-                'required',
-                'string',
-                new ValidUsernameRule(new ForbiddenUsername),
-                new DisplaynameHasUsernameRule($this->input('name')),
             ],
         ];
     }

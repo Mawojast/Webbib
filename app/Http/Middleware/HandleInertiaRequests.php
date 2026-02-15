@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
-                $authUsername = $request->user()?->name ?? null;
+        $authUsername = $request->user()?->name;
         $routeUsername = $request->route('user')?->name ?? null;
         return [
             ...parent::share($request),
@@ -46,10 +46,10 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
                 'profileImage' => $request->user()?->getImageUrl(),
-                'sidebarFolders' => $request->user()?->sidebarFolders->except('user_id', 'pivot'),
+                'sidebarFolders' => $request->user()?->sidebarFolders->except(['user_id', 'pivot']),
                 'userpage' => [
                     'can' => [
-                        'action' => $authUsername === $routeUsername,
+                        'action' => ($authUsername && $authUsername === $routeUsername),
                     ],
                 ],
             ],

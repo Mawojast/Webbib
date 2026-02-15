@@ -6,6 +6,7 @@ import { toUrl, urlIsActive } from '@/lib/utils';
 import { edit as editAppearance } from '@/routes/appearance';
 import { edit as editProfile } from '@/routes/profile';
 import { edit as editImage } from "@/routes/profile/image";
+import { edit as editEmail } from "@/routes/profile/email";
 import { show } from '@/routes/two-factor';
 import { edit as editPassword } from '@/routes/user-password';
 import { type NavItem } from '@/types';
@@ -17,8 +18,12 @@ const sidebarNavItems: NavItem[] = [
         href: editProfile(),
     },
     {
-        title: 'Profile Image',
+        title: 'Image',
         href: editImage(),
+    },
+    {
+        title: 'Email',
+        href: editEmail(),
     },
     {
         title: 'Password',
