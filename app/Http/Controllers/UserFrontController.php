@@ -78,9 +78,9 @@ class UserFrontController extends Controller
     {
         Gate::authorize('create', [UserFront::class, $user->name]);
         $data = $request->validated();
+        $userId = $request->user()->getKey();
 
-        DB::transaction(function () use ($data) {
-            $userId = Auth::id();
+        DB::transaction(function () use ($data, $userId) {
 
             $data['user_id'] = $userId;
             $data['position'] = 1;
@@ -131,9 +131,9 @@ class UserFrontController extends Controller
     {
         Gate::authorize('updatePosition', [$userFront, $user->name]);
         $data = $request->validated();
+        $userId = $request->user()->getKey();
 
-        DB::transaction(function () use ($userFront, $data) {
-            $userId = Auth::id();
+        DB::transaction(function () use ($userFront, $data, $userId) {
             $userFront->update(['position' => 0]);
 
             if ($data['from'] < $data['to']) {
@@ -161,12 +161,12 @@ class UserFrontController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user, UserFront $userFront): RedirectResponse
+    public function destroy(Request $request, User $user, UserFront $userFront): RedirectResponse
     {
         Gate::authorize('delete', [$userFront, $user->name]);
+        $userId = $request->user()->getKey();
 
-        DB::transaction(function () use ($userFront) {
-            $userId = Auth::id();
+        DB::transaction(function () use ($userFront, $userId) {
             $deletedPosition = $userFront->position;
 
             $userFront->delete();

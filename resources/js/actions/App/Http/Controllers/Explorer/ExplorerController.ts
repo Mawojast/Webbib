@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
-* @see app/Http/Controllers/Explorer/ExplorerController.php:22
+* @see app/Http/Controllers/Explorer/ExplorerController.php:21
 * @route '/explorer'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
-* @see app/Http/Controllers/Explorer/ExplorerController.php:22
+* @see app/Http/Controllers/Explorer/ExplorerController.php:21
 * @route '/explorer'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -29,7 +29,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
-* @see app/Http/Controllers/Explorer/ExplorerController.php:22
+* @see app/Http/Controllers/Explorer/ExplorerController.php:21
 * @route '/explorer'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -39,7 +39,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
-* @see app/Http/Controllers/Explorer/ExplorerController.php:22
+* @see app/Http/Controllers/Explorer/ExplorerController.php:21
 * @route '/explorer'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -49,7 +49,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
-* @see app/Http/Controllers/Explorer/ExplorerController.php:22
+* @see app/Http/Controllers/Explorer/ExplorerController.php:21
 * @route '/explorer'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -59,7 +59,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
-* @see app/Http/Controllers/Explorer/ExplorerController.php:22
+* @see app/Http/Controllers/Explorer/ExplorerController.php:21
 * @route '/explorer'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -69,7 +69,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::index
-* @see app/Http/Controllers/Explorer/ExplorerController.php:22
+* @see app/Http/Controllers/Explorer/ExplorerController.php:21
 * @route '/explorer'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -86,7 +86,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::edit
-* @see app/Http/Controllers/Explorer/ExplorerController.php:33
+* @see app/Http/Controllers/Explorer/ExplorerController.php:32
 * @route '/explorer/{folder}/edit'
 */
 export const edit = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -101,7 +101,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::edit
-* @see app/Http/Controllers/Explorer/ExplorerController.php:33
+* @see app/Http/Controllers/Explorer/ExplorerController.php:32
 * @route '/explorer/{folder}/edit'
 */
 edit.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -135,7 +135,7 @@ edit.url = (args: { folder: number | { id: number } } | [folder: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::edit
-* @see app/Http/Controllers/Explorer/ExplorerController.php:33
+* @see app/Http/Controllers/Explorer/ExplorerController.php:32
 * @route '/explorer/{folder}/edit'
 */
 edit.get = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -145,7 +145,7 @@ edit.get = (args: { folder: number | { id: number } } | [folder: number | { id: 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::edit
-* @see app/Http/Controllers/Explorer/ExplorerController.php:33
+* @see app/Http/Controllers/Explorer/ExplorerController.php:32
 * @route '/explorer/{folder}/edit'
 */
 edit.head = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -155,7 +155,7 @@ edit.head = (args: { folder: number | { id: number } } | [folder: number | { id:
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::edit
-* @see app/Http/Controllers/Explorer/ExplorerController.php:33
+* @see app/Http/Controllers/Explorer/ExplorerController.php:32
 * @route '/explorer/{folder}/edit'
 */
 const editForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -165,7 +165,7 @@ const editForm = (args: { folder: number | { id: number } } | [folder: number | 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::edit
-* @see app/Http/Controllers/Explorer/ExplorerController.php:33
+* @see app/Http/Controllers/Explorer/ExplorerController.php:32
 * @route '/explorer/{folder}/edit'
 */
 editForm.get = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -175,7 +175,7 @@ editForm.get = (args: { folder: number | { id: number } } | [folder: number | { 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::edit
-* @see app/Http/Controllers/Explorer/ExplorerController.php:33
+* @see app/Http/Controllers/Explorer/ExplorerController.php:32
 * @route '/explorer/{folder}/edit'
 */
 editForm.head = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -192,7 +192,7 @@ edit.form = editForm
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::store
-* @see app/Http/Controllers/Explorer/ExplorerController.php:41
+* @see app/Http/Controllers/Explorer/ExplorerController.php:40
 * @route '/explorer'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -207,7 +207,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::store
-* @see app/Http/Controllers/Explorer/ExplorerController.php:41
+* @see app/Http/Controllers/Explorer/ExplorerController.php:40
 * @route '/explorer'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -220,7 +220,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::store
-* @see app/Http/Controllers/Explorer/ExplorerController.php:41
+* @see app/Http/Controllers/Explorer/ExplorerController.php:40
 * @route '/explorer'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -230,7 +230,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::store
-* @see app/Http/Controllers/Explorer/ExplorerController.php:41
+* @see app/Http/Controllers/Explorer/ExplorerController.php:40
 * @route '/explorer'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -240,7 +240,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::store
-* @see app/Http/Controllers/Explorer/ExplorerController.php:41
+* @see app/Http/Controllers/Explorer/ExplorerController.php:40
 * @route '/explorer'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -252,7 +252,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::destroy
-* @see app/Http/Controllers/Explorer/ExplorerController.php:71
+* @see app/Http/Controllers/Explorer/ExplorerController.php:70
 * @route '/explorer/{folder}'
 */
 export const destroy = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -267,7 +267,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::destroy
-* @see app/Http/Controllers/Explorer/ExplorerController.php:71
+* @see app/Http/Controllers/Explorer/ExplorerController.php:70
 * @route '/explorer/{folder}'
 */
 destroy.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -301,7 +301,7 @@ destroy.url = (args: { folder: number | { id: number } } | [folder: number | { i
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::destroy
-* @see app/Http/Controllers/Explorer/ExplorerController.php:71
+* @see app/Http/Controllers/Explorer/ExplorerController.php:70
 * @route '/explorer/{folder}'
 */
 destroy.delete = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -311,7 +311,7 @@ destroy.delete = (args: { folder: number | { id: number } } | [folder: number | 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::destroy
-* @see app/Http/Controllers/Explorer/ExplorerController.php:71
+* @see app/Http/Controllers/Explorer/ExplorerController.php:70
 * @route '/explorer/{folder}'
 */
 const destroyForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -326,7 +326,7 @@ const destroyForm = (args: { folder: number | { id: number } } | [folder: number
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::destroy
-* @see app/Http/Controllers/Explorer/ExplorerController.php:71
+* @see app/Http/Controllers/Explorer/ExplorerController.php:70
 * @route '/explorer/{folder}'
 */
 destroyForm.delete = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -343,7 +343,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::update
-* @see app/Http/Controllers/Explorer/ExplorerController.php:54
+* @see app/Http/Controllers/Explorer/ExplorerController.php:53
 * @route '/explorer/{folder}'
 */
 export const update = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -358,7 +358,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::update
-* @see app/Http/Controllers/Explorer/ExplorerController.php:54
+* @see app/Http/Controllers/Explorer/ExplorerController.php:53
 * @route '/explorer/{folder}'
 */
 update.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -392,7 +392,7 @@ update.url = (args: { folder: number | { id: number } } | [folder: number | { id
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::update
-* @see app/Http/Controllers/Explorer/ExplorerController.php:54
+* @see app/Http/Controllers/Explorer/ExplorerController.php:53
 * @route '/explorer/{folder}'
 */
 update.put = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -402,7 +402,7 @@ update.put = (args: { folder: number | { id: number } } | [folder: number | { id
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::update
-* @see app/Http/Controllers/Explorer/ExplorerController.php:54
+* @see app/Http/Controllers/Explorer/ExplorerController.php:53
 * @route '/explorer/{folder}'
 */
 const updateForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -417,7 +417,7 @@ const updateForm = (args: { folder: number | { id: number } } | [folder: number 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::update
-* @see app/Http/Controllers/Explorer/ExplorerController.php:54
+* @see app/Http/Controllers/Explorer/ExplorerController.php:53
 * @route '/explorer/{folder}'
 */
 updateForm.put = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -434,7 +434,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::updatePublic
-* @see app/Http/Controllers/Explorer/ExplorerController.php:63
+* @see app/Http/Controllers/Explorer/ExplorerController.php:62
 * @route '/explorer/{folder}/public'
 */
 export const updatePublic = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -449,7 +449,7 @@ updatePublic.definition = {
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::updatePublic
-* @see app/Http/Controllers/Explorer/ExplorerController.php:63
+* @see app/Http/Controllers/Explorer/ExplorerController.php:62
 * @route '/explorer/{folder}/public'
 */
 updatePublic.url = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -483,7 +483,7 @@ updatePublic.url = (args: { folder: number | { id: number } } | [folder: number 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::updatePublic
-* @see app/Http/Controllers/Explorer/ExplorerController.php:63
+* @see app/Http/Controllers/Explorer/ExplorerController.php:62
 * @route '/explorer/{folder}/public'
 */
 updatePublic.put = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -493,7 +493,7 @@ updatePublic.put = (args: { folder: number | { id: number } } | [folder: number 
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::updatePublic
-* @see app/Http/Controllers/Explorer/ExplorerController.php:63
+* @see app/Http/Controllers/Explorer/ExplorerController.php:62
 * @route '/explorer/{folder}/public'
 */
 const updatePublicForm = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -508,7 +508,7 @@ const updatePublicForm = (args: { folder: number | { id: number } } | [folder: n
 
 /**
 * @see \App\Http\Controllers\Explorer\ExplorerController::updatePublic
-* @see app/Http/Controllers/Explorer/ExplorerController.php:63
+* @see app/Http/Controllers/Explorer/ExplorerController.php:62
 * @route '/explorer/{folder}/public'
 */
 updatePublicForm.put = (args: { folder: number | { id: number } } | [folder: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

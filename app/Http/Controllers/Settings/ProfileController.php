@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Http\Requests\Settings\ProfileUpdateRequest;
 use App\Http\Requests\Settings\ProfileImageUpdateRequest;
 use App\Http\Requests\Settings\ProfileEmailUpdateRequest;
@@ -57,7 +56,7 @@ class ProfileController extends Controller
      */
     public function imageUpdate(ProfileImageUpdateRequest $request)
     {
-        $user = User::findOrFail(Auth::id());
+        $user = $request->user();
 
         if ($request->hasFile('image')) {
 

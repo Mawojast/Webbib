@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use Inertia\Response as InertiaResponse;
 use App\Models\Dashboard;
-use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\StoreDashboardRequest;
 use App\Http\Requests\Dashboard\UpdateDashboardRequest;
 use App\Http\Requests\Dashboard\UpdatePositionDashboardRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use App\Services\Favicon\FaviconService;
@@ -25,14 +23,14 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        Cache::forget('dashboard.index.'.Auth::id());
-        $dashboards = Cache::remember('dashboard.index.'.Auth::id(), 60, function() {
-            return Dashboard::where('user_id', Auth::id())
+        $user = $request->user();
+        Cache::forget('dashboard.index.'.$user->getKey());
+        $dashboards = Cache::remember('dashboard.index.'.$user->getKey(), 60, function() use ($user) {
+            return Dashboard::where('user_id', $user->getKey())
                 ->orderBy('position', 'asc')
                 ->get();
             });
 
-        $user = User::find(Auth::id());
         $lastUsedTags = $request->user()->lastUsedTags()->get();
         return Inertia::render('dashboard/index', [
             'dashboards' => $dashboards->map->only(['id', 'title', 'url', 'position', 'created_at', 'image']),
@@ -60,9 +58,9 @@ class DashboardController extends Controller
         $data = $request->validated();
 
         $data['image'] = $faviconService->getFavicon($data['url']);
+        $userId = $request->user()->getKey();
 
-        DB::transaction(function () use ($data) {
-            $userId = Auth::id();
+        DB::transaction(function () use ($data, $userId) {
 
             $data['user_id'] = $userId;
             $data['position'] = 1;
@@ -75,7 +73,7 @@ class DashboardController extends Controller
             Dashboard::create($data);
         }, 2);
 
-        Cache::forget('dashboard.index.'.Auth::id());
+        Cache::forget('dashboard.index.'.$userId);
 
         return redirect()->route('dashboard.index');
     }
@@ -113,7 +111,7 @@ class DashboardController extends Controller
 
         $dashboard->update($data);
 
-        Cache::forget('dashboard.index.'.Auth::id());
+        Cache::forget('dashboard.index.'.$request->user()->getKey());
         return redirect()->route('dashboard.index');
     }
 
@@ -124,8 +122,8 @@ class DashboardController extends Controller
     {
         Gate::authorize('updatePosition', $dashboard);
         $data = $request->validated();
-        DB::transaction(function () use ($dashboard, $data) {
-            $userId = Auth::id();
+        $userId = $request->user()->getKey();
+        DB::transaction(function () use ($dashboard, $data, $userId) {
             $dashboard->update(['position' => 0]);
 
             if ($data['from'] < $data['to']) {
@@ -146,19 +144,19 @@ class DashboardController extends Controller
             $dashboard->update(['position' => $data['to']]);
         }, 2);
 
-        Cache::forget('dashboard.index.'.Auth::id());
+        Cache::forget('dashboard.index.'.$userId);
         return redirect()->route('dashboard.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dashboard $dashboard)
+    public function destroy(Request $request, Dashboard $dashboard)
     {
         Gate::authorize('delete', $dashboard);
 
-        DB::transaction(function () use ($dashboard) {
-            $userId = Auth::id();
+        $userId = $request->user()->getKey();
+        DB::transaction(function () use ($dashboard, $userId) {
             $deletedPosition = $dashboard->position;
 
             $dashboard->delete();
@@ -169,7 +167,7 @@ class DashboardController extends Controller
                 ->decrement('position');
         }, 2);
 
-        Cache::forget('dashboard.index.'.Auth::id());
+        Cache::forget('dashboard.index.'.$userId);
 
         return back();
     }

@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Explorer\StoreFolderRequest;
 use App\Http\Requests\Explorer\UpdateFolderRequest;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\SidebarFolder;
 use Illuminate\Http\Request;
@@ -25,7 +24,7 @@ class FolderController extends Controller
 
         $lastUsedTags = $request->user()->lastUsedTags()->get();
         $childFolders = Folder::where('parent_id', $folder->id)->get();
-        $sidebarFolders = SidebarFolder::where('user_id', Auth::id())->get();
+        $sidebarFolders = SidebarFolder::where('user_id', $request->user()->getKey())->get();
         $ancestors = $folder->ancestors()->get();
 
         // takes the first and last two elements
@@ -58,7 +57,7 @@ class FolderController extends Controller
         Gate::authorize('create', $folder);
 
         $data = $request->validated();
-        $data['user_id'] = Auth::id();
+        $data['user_id'] = $request->user()->getKey();
         $data['parent_id'] = $folder->id;
         $data['public'] = $folder->public;
 

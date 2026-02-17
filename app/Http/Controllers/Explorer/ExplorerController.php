@@ -10,19 +10,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Explorer\StoreExplorerRequest;
 use App\Http\Requests\Explorer\UpdateExplorerRequest;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-
+use Illuminate\Http\Request;
 
 class ExplorerController extends Controller
 {
     /**
      * Show the dashboard page.
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $folders = Folder::where('user_id', Auth::id())->where('parent_id', null)->get();
-        $sidebarFolders = SidebarFolder::where('user_id', Auth::id())->get();
+        $folders = Folder::where('user_id', $request->user()->getKey())->where('parent_id', null)->get();
+        $sidebarFolders = SidebarFolder::where('user_id', $request->user()->getKey())->get();
 
         return Inertia::render('explorer/index', [
             'folders' => $folders->map->only(['id', 'name', 'created_at', 'public', 'updated_at']),
@@ -43,7 +42,7 @@ class ExplorerController extends Controller
         Gate::authorize('createExplorer', Folder::class);
 
         $data = $request->validated();
-        $data['user_id'] = Auth::id();
+        $data['user_id'] = $request->user()->getKey();
         $data['parent_id'] = null;
 
         Folder::create($data);
