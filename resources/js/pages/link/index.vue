@@ -537,30 +537,7 @@ const deleteLink = (id: number) => {
                     </Button>
                 </div>
 
-                <!-- Sort by created_at button -->
-                <div>
-                    <DropdownMenu >
-                        <DropdownMenuTrigger as-child class="p-3 h-6.5 rounded-sm">
-                            <Button variant="outline" class="ml-auto">
-                                Show<ChevronDown class="ml-2 h-4 w-4" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" >
-                        <!-- Show dropdown content -->
-                            <DropdownMenuCheckboxItem
-                                v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
-                                :key="column.id"
-                                class="capitalize"
-                                :model-value="column.getIsVisible()"
-                                @update:model-value="(value) => {
-                                column.toggleVisibility(!!value)
-                                }"
-                            >
-                                {{ column.id }}
-                            </DropdownMenuCheckboxItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
+                <!-- Sort by created_at button-->
                 <Button
                     class="bg-neutral-100 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700 p-3 h-6.5 rounded-sm"
                     @click="table.getHeaderGroups()[0].headers[3].column.toggleSorting(table.getHeaderGroups()[0].headers[3].column.getIsSorted() === 'asc')">
@@ -574,85 +551,79 @@ const deleteLink = (id: number) => {
                             <!-- Link card elements -->
                             <Card
                                 :data-state="row.getIsSelected() ? 'selected' : undefined"
-                                class="rounded-md dark:bg-[hsl(0,0%,9.9%)] p-0 gap-0  border-1 p-1 shadow-none"
+                                class="rounded-md dark:bg-[hsl(0,0%,14.9%)] bg-[hsl(0,0%,95.9%)] gap-0 p-1 shadow-none"
                             >
-                                    <template
-                                        v-for="cell in row.getVisibleCells()"
-                                        :key="cell.id"
-                                    >
-                                        <CardHeader v-if="cell.column.id === 'select' || cell.column.columnDef.accessorKey === 'title'" class=" p-0">
-                                            <!-- TITLE -->
-                                            <template v-if="cell.column.columnDef.accessorKey === 'title'">
-                                                <CardTitle class="text-lg font-semibold line-clamp-3 text-center pb-1 pt-3">
-                                                    {{ cell.getValue() }}
-                                                </CardTitle>
-                                            </template>
-                                        </CardHeader>
-                                        <CardContent class="p-0 m-0">
-                                            <!-- URL -->
-                                            <template v-if="cell.column.columnDef.accessorKey === 'url'">
-                                                <div class="line-clamp-4 break-all">
-                                                    <a :href="cell.getValue()" target="_blank" rel="noopener noreferrer" class="text-sm">
-                                                        {{ normalizeDisplayUrl(cell.getValue()) }}
-                                                    </a>
-                                                </div>
-                                            </template>
-                                            <!-- FOLDER_NAME -->
-                                            <template v-else-if="cell.column.columnDef.accessorKey === 'folder'">
-                                                <div class="text-sm text-neutral-500 pb-5 pt-5">
-                                                    Folder:
-                                                    <template v-if="cell.getValue().display">
-                                                        <Link :href="folder.index(cell.getValue().id)">{{ cell.getValue().display }}</Link>
-                                                    </template>
-                                                    <template v-else>
-                                                        <span>-</span>
-                                                    </template>
-                                                </div>
-                                            </template>
-                                            <!-- TAGS -->
-                                            <template v-if="cell.column.columnDef.accessorKey === 'tags'">
-                                                <div class="flex gap-2 flex-wrap">
-                                                    <template v-if="cell.row.original.tags?.length">
-                                                        <TagBadge
-                                                            v-for="tag in cell.row.original.tags"
-                                                            :key="tag.id"
-                                                            :name="tag.name"
-                                                            class="hover:cursor-auto"
-                                                        >
-                                                            {{ tag.name }}
-                                                        </TagBadge>
-                                                    </template>
-                                                    <template v-else>
-                                                        <span class="text-neutral-400 text-sm"></span>
-                                                    </template>
-                                                </div>
-                                            </template>
-                                            <div class="flex ">
-                                                <!-- CREATED_AT -->
-                                                <div v-if="cell.column.columnDef.accessorKey === 'created_at'" class="flex w-full">
-                                                    <span class="text-sm text-neutral-500 pb-5 pt-5 ">
-                                                        {{ formatDateDMY(cell.getValue()) }}
-                                                    </span>
-                                                </div>
-                                                <!-- Edit Dropdown -->
-                                                <div v-if="cell.column.columnDef.accessorKey === 'settings'" class="flex rounded w-full justify-end dark:bg-[hsl(0,0%,14.9%)] bg-[hsl(0,0%,70.9%)]">
-                                                    <DropdownMenu v-if="!isEditLinkDialogOpen">
-                                                        <DropdownMenuTrigger as-child >
-                                                            <EllipsisVertical class="w-5 h-6 flex items-center justify-center cursor-pointer text-neutral-200"/>
-                                                        </DropdownMenuTrigger>
-                                                        <DropdownMenuContent class="grid gap-5 font-bold w-40" align="end" >
-                                                            <DropdownMenuItem  @click="openEditLinkDialog(cell.row.original)">
-                                                                Edit
-                                                            </DropdownMenuItem>
-                                                            <DropdownMenuItem @click="deleteLink(cell.getValue())" class="text-red-600 pt-">
-                                                                Delete
-                                                            </DropdownMenuItem>
-                                                        </DropdownMenuContent>
-                                                    </DropdownMenu>
-                                                </div>
+                                <CardHeader class="h-34 p-0">
+                                    <!-- Edit Dropdown -->
+                                    <div class="flex rounded w-full justify-end dark:bg-[hsl(0,0%,20.9%)] bg-[hsl(0,0%,77.9%)]">
+                                        <DropdownMenu v-if="!isEditLinkDialogOpen">
+                                            <DropdownMenuTrigger as-child >
+                                                <EllipsisVertical class="w-5 h-6 flex items-center justify-center cursor-pointer text-neutral-200"/>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent class="grid gap-5 font-bold w-40" align="end" >
+                                                <DropdownMenuItem  @click="openEditLinkDialog(row.getVisibleCells()[1].row.original)">
+                                                    Edit
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem @click="deleteLink(row.getVisibleCells()[1].row.original.id)" class="text-red-600 pt-">
+                                                    Delete
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </div>
+                                    <!-- TITLE -->
+                                    <CardTitle class="text-lg font-semibold line-clamp-3 text-center">
+                                        {{ row.getVisibleCells()[1].row.original.title }}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent class="p-0 m-0">
+                                    <!-- URL -->
+                                    <div class="h-8">
+                                            <div class="line-clamp-1 break-all">
+                                                <a :href="row.getVisibleCells()[1].row.original.url" target="_blank" rel="noopener noreferrer" class="text-sm">
+                                                    {{ normalizeDisplayUrl(row.getVisibleCells()[1].row.original.url) }}
+                                                </a>
                                             </div>
-                                        </CardContent>
-                                    </template>
+
+                                    </div>
+                                    <!-- FOLDER_NAME -->
+                                    <div class="h-8">
+                                        <div class="text-sm text-neutral-500 h-8">
+                                            Folder:
+                                            <template v-if="row.getVisibleCells()[4].getValue().display">
+                                                <Link :href="folder.index(row.getVisibleCells()[1].row.original.folder_id)">{{ row.getVisibleCells()[4].getValue().display }}</Link>
+                                            </template>
+                                            <template v-else>
+                                                <span>-</span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    <!-- CREATED_AT -->
+                                    <div class="h-8">
+                                        <div class="flex w-full border bottom-0">
+                                            <span class="text-sm text-neutral-500  border">
+                                                {{ formatDateDMY(row.getVisibleCells()[1].row.original.created_at) }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                    <!-- TAGS -->
+                                        <div class="flex gap-2 flex-wrap">
+                                            <template v-if="row.getVisibleCells()[1].row.original.tags?.length">
+                                                <TagBadge
+                                                    v-for="tag in row.getVisibleCells()[1].row.original.tags"
+                                                    :key="tag.id"
+                                                    :name="tag.name"
+                                                    class="hover:cursor-auto"
+                                                >
+                                                    {{ tag.name }}
+                                                </TagBadge>
+                                            </template>
+                                            <template v-else>
+                                                <span class="text-neutral-400 text-sm"></span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </CardContent>
                             </Card>
                         </template>
                     </template>

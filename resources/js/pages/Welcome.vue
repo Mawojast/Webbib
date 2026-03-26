@@ -18,14 +18,14 @@ withDefaults(
 
 <template>
     <Head title="Organize link collections · Webbib">
-        <meta name="description" content="Manage your website collections and create topics with links that can be set to public or kept private." />
+        <meta name="description" content="Manage your link collections and create topics with links that can be set to public or kept private." />
         <meta name="selected-link" value="/" data-turbo-transient="">
         <meta property="og:title" content="Webbib · Organize your link collections">
         <meta property="og:url" content="https://www.webbib.net">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image" content="https://www.webbib.net/hero-next-next.png">
-        <meta property="og:image:alt" content="Manage your website collections and create topics with links that can be set to public or kept private.">
-        <meta property="og:description" content="Manage your website collections and create topics with links that can be set to public or kept private.">
+        <meta property="og:image:alt" content="Manage your link collections and create topics with links that can be set to public or kept private.">
+        <meta property="og:description" content="Manage your link collections and create topics with links that can be set to public or kept private.">
     </Head>
     <header class="not-has-[nav]:hidden  w-full text-sm gradient sticky top-0  p-2 z-50">
         <nav class="flex items-center">
@@ -106,7 +106,7 @@ withDefaults(
                 <!--Left Col-->
                 <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
                     <h2 class="my-4 text-5xl font-bold leading-tight w-full lg:mx-0 xs:mx-auto text-neutral-100">
-                        Managing Websites
+                        Link Manager
                     </h2>
                     <p class="leading-normal text-2xl mb-8 text-neutral-100 font-medium">
                         Save links, create collections and organize websites into topics.

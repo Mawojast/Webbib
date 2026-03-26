@@ -8,7 +8,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 class LinkTagsRule implements ValidationRule
 {
     private const MAX_TAGS = 8;
-    private const MAX_TAG_LENGTH = 25;
+    private const MAX_TAG_LENGTH = 21;
     private const MIN_TAG_LENGTH = 2;
     /**
      * Run the validation rule.
