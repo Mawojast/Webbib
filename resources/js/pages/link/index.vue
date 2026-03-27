@@ -540,8 +540,14 @@ const deleteLink = (id: number) => {
                 <!-- Sort by created_at button-->
                 <Button
                     class="bg-neutral-100 dark:bg-neutral-800 dark:text-gray-200 text-gray-700 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700 p-3 h-6.5 rounded-sm"
-                    @click="table.getHeaderGroups()[0].headers[3].column.toggleSorting(table.getHeaderGroups()[0].headers[3].column.getIsSorted() === 'asc')">
-                        <ArrowUpDown />
+                    @click="() => {
+                        const column = table.getColumn('created_at');
+                        if (column) {
+                            column.toggleSorting(column.getIsSorted() === 'asc');
+                        }
+                    }"
+                >
+                    <ArrowUpDown />
                 </Button>
             </div>
             <div class="rounded-md pt-5">
