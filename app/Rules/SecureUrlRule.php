@@ -43,7 +43,7 @@ class SecureUrlRule implements ValidationRule
             return;
         }
 
-        $verifyUrlExists = $this->verifyUrlExists($value);
+        $verifyUrlExists = $this->verifySecureyUrlExists($value);
         if ($verifyUrlExists !== true) {
             $this->logger->warning("Blocked URL (http): {$value} - {$verifyUrlExists}");
             $fail($verifyUrlExists);
@@ -111,7 +111,7 @@ class SecureUrlRule implements ValidationRule
         return true;
     }
 
-    protected function verifyUrlExists(string $url): string|bool
+    protected function verifySecureyUrlExists(string $url): string|bool
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -122,9 +122,14 @@ class SecureUrlRule implements ValidationRule
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 
         curl_exec($ch);
+
+        if (curl_errno($ch) === CURLE_SSL_CACERT || curl_errno($ch) === CURLE_SSL_PEER_CERTIFICATE) {
+            return "Only secure https:// url allowed";
+        }
+
         $response = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        if (empty($response) && $response === 404) {
+
+        if (empty($response) || $response === 404) {
             return "URL is not found.";
         }
 
