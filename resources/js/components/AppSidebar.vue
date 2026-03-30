@@ -25,14 +25,14 @@ const page = usePage<SharedData>();
 const name = page.props.auth.user?.name;
 const mainNavItems: NavItem[] = [
     {
-        title: 'Frontpage',
-        href: '/'+name,
-        icon: CircleUserRound
-    },
-    {
         title: 'Dashboard',
         href: '/dashboard',
         icon: Monitor,
+    },
+    {
+        title: 'Frontpage',
+        href: '/'+name,
+        icon: CircleUserRound
     },
     {
         title: 'Links',
