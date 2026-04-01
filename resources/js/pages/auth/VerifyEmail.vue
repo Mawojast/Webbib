@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { logout } from '@/routes';
+import dashboard from "@/routes/dashboard"
 import { send } from '@/routes/verification';
 import { Form, Head } from '@inertiajs/vue3';
 
@@ -38,12 +39,19 @@ defineProps<{
             </Button>
 
             <TextLink
+                    :href="dashboard.index()"
+                    class="mx-auto block text-sm"
+                >
+                Dashboard
+            </TextLink>
+            <TextLink
                 :href="logout()"
                 as="button"
                 class="mx-auto block text-sm"
             >
                 Log out
             </TextLink>
+
         </Form>
     </AuthLayout>
 </template>
