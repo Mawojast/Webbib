@@ -4,6 +4,7 @@ import { edit } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import { Form, Head, Link, usePage } from '@inertiajs/vue3';
 
+import { computed, ref } from 'vue'
 import DeleteUser from '@/components/DeleteUser.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
@@ -29,6 +30,14 @@ const breadcrumbItems: BreadcrumbItem[] = [
 ];
 const page = usePage();
 const user = page.props.auth.user;
+
+const isVerifiedOver30DaysAgoOrUnverified = computed(() => {
+    if (!user.email_verified_at) return true
+    const verifiedAt = new Date(user.email_verified_at)
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+    return verifiedAt <= thirtyDaysAgo
+});
+
 </script>
 
 <template>
@@ -41,13 +50,11 @@ const user = page.props.auth.user;
                     title="Profile information"
                     description="Update your email address"
                 />
-
                 <Form
                     v-bind="ProfileController.emailUpdate.form()"
                     class="space-y-6"
                     v-slot="{ errors, processing, recentlySuccessful }"
                 >
-
                     <div class="grid gap-2">
                         <Label for="email">Email address</Label>
                         <Input
@@ -59,10 +66,10 @@ const user = page.props.auth.user;
                             required
                             autocomplete="username"
                             placeholder="Email address"
+                            :disabled="!isVerifiedOver30DaysAgoOrUnverified"
                         />
                         <InputError class="mt-2" :message="errors.email" />
                     </div>
-
                     <div v-if="mustVerifyEmail && !user.email_verified_at">
                         <p class="-mt-4 text-sm text-muted-foreground">
                             Your email address is unverified.
@@ -74,7 +81,6 @@ const user = page.props.auth.user;
                                 Click here to resend the verification email.
                             </Link>
                         </p>
-
                         <div
                             v-if="status === 'verification-link-sent'"
                             class="mt-2 text-sm font-medium text-green-600"
@@ -83,14 +89,12 @@ const user = page.props.auth.user;
                             address.
                         </div>
                     </div>
-
                     <div class="flex items-center gap-4">
                         <Button
-                            :disabled="processing"
+                            :disabled="processing || !isVerifiedOver30DaysAgoOrUnverified"
                             data-test="update-profile-button"
                             >Save</Button
                         >
-
                         <Transition
                             enter-active-class="transition ease-in-out"
                             enter-from-class="opacity-0"
@@ -106,6 +110,9 @@ const user = page.props.auth.user;
                         </Transition>
                     </div>
                 </Form>
+                <div>
+                    You can only change your verified email address once every 30 days.
+                </div>
             </div>
 
         </SettingsLayout>

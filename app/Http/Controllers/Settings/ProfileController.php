@@ -9,6 +9,7 @@ use App\Http\Requests\Settings\ProfileEmailUpdateRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -85,6 +86,7 @@ class ProfileController extends Controller
      */
     public function emailUpdate(ProfileEmailUpdateRequest $request)
     {
+        Gate::authorize('updateEmail', $request->user());
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {

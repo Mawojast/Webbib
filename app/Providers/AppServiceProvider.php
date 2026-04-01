@@ -8,10 +8,12 @@ use App\Models\Dashboard;
 use App\Models\Folder;
 use App\Models\Link;
 use App\Models\UserFront;
+use App\Models\User;
 use App\Policies\DashboardPolicy;
 use App\Policies\FolderPolicy;
 use App\Policies\LinkPolicy;
 use App\Policies\UserFrontPolicy;
+use App\Policies\ProfilePolicy;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
 
@@ -34,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Folder::class, FolderPolicy::class);
         Gate::policy(Link::class, LinkPolicy::class);
         Gate::policy(Dashboard::class, DashboardPolicy::class);
-        Gate::policy(UserFront::class, UserFrontPolicy::class);
+        Gate::policy(User::class, ProfilePolicy::class);
 
         // Rate limits
         $this->limitLoginAttemptsPerMinute(5);
