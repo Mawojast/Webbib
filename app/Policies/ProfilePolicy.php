@@ -18,4 +18,9 @@ class ProfilePolicy
     {
         return !$user->email_verified_at || $user->email_verified_at->lte(now()->subDays(30));
     }
+
+    public function updateName(User $user): bool
+    {
+        return $user->name_created_at->lte(now()->subDays(30));
+    }
 }

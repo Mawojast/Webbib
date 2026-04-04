@@ -104,11 +104,16 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        Gate::authorize('updateName', $request->user());
         $request->user()->fill($request->validated());
+
+        if ($request->user()->isDirty('name')) {
+            $request->user()->name_created_at = now();
+        }
 
         $request->user()->save();
 
-        return to_route('profile.edit');
+        return to_route('dashboard.index');
     }
 
     public function imageDestroy(Request $request): RedirectResponse

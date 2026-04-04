@@ -3,7 +3,7 @@ import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileCo
 import { edit } from '@/routes/profile';
 import { send } from '@/routes/verification';
 import { Form, Head, Link, usePage } from '@inertiajs/vue3';
-
+import { computed } from 'vue'
 import DeleteUser from '@/components/DeleteUser.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import InputError from '@/components/InputError.vue';
@@ -29,6 +29,14 @@ const breadcrumbItems: BreadcrumbItem[] = [
 ];
 const page = usePage();
 const user = page.props.auth.user;
+
+const isNameOver30DaysAgo = computed(() => {
+    if (!user.name_created_at) return true;
+    const verifiedAt = new Date(user.name_created_at)
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+    return verifiedAt <= thirtyDaysAgo
+});
+
 </script>
 
 <template>
@@ -57,6 +65,7 @@ const user = page.props.auth.user;
                             required
                             autocomplete="name"
                             placeholder="Full name"
+                            :disabled="!isNameOver30DaysAgo"
                         />
                         <InputError class="mt-2" :message="errors.name" />
                     </div>
@@ -70,13 +79,14 @@ const user = page.props.auth.user;
                             :default-value="user.display_name"
                             required autocomplete="display_name"
                             placeholder="Full name"
+                            :disabled="!isNameOver30DaysAgo"
                         />
                         <InputError class="mt-2" :message="errors.display_name" />
                     </div>
 
                     <div class="flex items-center gap-4">
                         <Button
-                            :disabled="processing"
+                            :disabled="processing || !isNameOver30DaysAgo"
                             data-test="update-profile-button"
                             >Save</Button
                         >
@@ -96,6 +106,9 @@ const user = page.props.auth.user;
                         </Transition>
                     </div>
                 </Form>
+                <div>
+                    You can only change your name once every 30 days.
+                </div>
             </div>
 
             <DeleteUser />

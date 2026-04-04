@@ -29,7 +29,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'display_name'
+        'display_name',
+        'name_created_at'
     ];
 
     /**
@@ -53,6 +54,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return [
             'email_verified_at' => 'datetime',
+            'name_created_at' => 'datetime',
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
         ];
@@ -142,7 +144,7 @@ class User extends Authenticatable implements MustVerifyEmail
             ->where('links.user_id', $this->id);
     }
 
-    
+
     public function lastUsedTags(int $limit = 8)
     {
         return $this->tags()
