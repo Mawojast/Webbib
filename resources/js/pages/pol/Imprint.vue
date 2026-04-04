@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
-import LightDarkSwitch from '@/components/LightDarkSwitch.vue';
 import { login, register } from '@/routes';
 import dashboard from "@/routes/dashboard"
 const data = defineProps(['htmlText']);

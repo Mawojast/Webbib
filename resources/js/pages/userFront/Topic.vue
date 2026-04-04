@@ -5,7 +5,6 @@ import { ref, watch } from 'vue';
 import { type BreadcrumbItem, SharedData, ChildFolder, FolderLink, Folder, AncestorFolder, LinkForm, Tag } from '@/types';
 import { Button } from '@/components/ui/button';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
-import LightDarkSwitch from '@/components/LightDarkSwitch.vue';
 import InputError from '@/components/InputError.vue';
 import { Input } from '@/components/ui/input';
 import TextLink from '@/components/TextLink.vue';
@@ -137,7 +136,6 @@ const title = data.folder.name+' - '+data.displayname;
             <div class="flex flex-1 items-center justify-end md:justify-between">
                 <nav aria-label="Global" class="hidden md:block"></nav>
                 <div class="flex items-center gap-4">
-                    <LightDarkSwitch :onlyIcons="true" v-if="!$page.props.auth.user" />
                     <nav class="flex  justify-end gap-6">
                         <Link
                             v-if="$page.props.auth.user"

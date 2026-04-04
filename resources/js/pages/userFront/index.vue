@@ -3,7 +3,6 @@ import { Link, usePage, useForm, Head } from '@inertiajs/vue3';
 import { EllipsisVertical } from 'lucide-vue-next';
 import { ref, watch, computed } from 'vue';
 import draggable from 'vuedraggable'
-import LightDarkSwitch from '@/components/LightDarkSwitch.vue';
 import { Button } from '@/components/ui/button';
 import InputError from '@/components/InputError.vue';
 import { Input } from '@/components/ui/input';
@@ -155,7 +154,6 @@ const imageAlt = data.displayname + ' - Profile Image';
             <div class="flex flex-1 items-center justify-end md:justify-between">
                 <nav aria-label="Global" class="hidden md:block"></nav>
                 <div class="flex items-center gap-4">
-                    <LightDarkSwitch :onlyIcons="true" v-if="!$page.props.auth.user" />
                     <nav class="flex  justify-end gap-6">
                         <Link
                         v-if="$page.props.auth.user"
