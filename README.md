@@ -1,6 +1,6 @@
 # Webbib
 
-> Organize your link collections — save links, create topics, and share them publicly or keep them private.
+> Organize your link collections, save links, create topics, and share them publicly or keep them private.
 
 ![Hero Screenshot](https://www.webbib.net/hero-next-next.png)
 
@@ -14,11 +14,11 @@
 
 ## Features
 
-- **Save links** — Add websites to your personal dashboard for quick access
-- **Topic folders** — Organize links into collections and pin topics to the sidebar
-- **Public & private** — Choose which topics appear on your public user page and which stay private
-- **Customizable profile** — Set a profile picture and personalize your user page
-- **Responsive UI** — Works on desktop and mobile
+- **Save links**: Add websites to your personal dashboard for quick access
+- **Topic folders**: Organize links into collections and pin topics to the sidebar
+- **Public & private**: Choose which topics appear on your public user page and which stay private
+- **Customizable profile**: Set a profile picture and personalize your user page
+- **Responsive UI**: Works on desktop and mobile
 
 ---
 
@@ -32,8 +32,6 @@
 | Build | Vite |
 
 ---
-
-## Getting Started
 
 ### Requirements
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavTopic from '@/components/NavTopic.vue';
 import NavUser from '@/components/NavUser.vue';
@@ -12,17 +11,16 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import dashboard from "@/routes/dashboard"
 import userfront from '@/routes/userfront';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 import { Monitor, Folder, LayoutGrid, CircleUserRound, Link as LinkIcon } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
-import { computed } from "vue"
+import { computed, ref } from "vue"
 
 
 const page = usePage<SharedData>();
-const name = page.props.auth.user?.name;
+const name = ref(page.props.auth.user?.name);
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
@@ -31,7 +29,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Frontpage',
-        href: '/'+name,
+        href: '/'+name.value,
         icon: CircleUserRound
     },
     {
