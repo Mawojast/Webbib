@@ -1,25 +1,50 @@
-# Laravel + Vue Starter Kit
+# Webbib
 
-## Introduction
+> Organize your link collections — save links, create topics, and share them publicly or keep them private.
 
-Our Vue starter kit provides a robust, modern starting point for building Laravel applications with a Vue frontend using [Inertia](https://inertiajs.com).
+![Hero Screenshot](https://www.webbib.net/hero-next-next.png)
 
-Inertia allows you to build modern, single-page Vue applications using classic server-side routing and controllers. This lets you enjoy the frontend power of Vue combined with the incredible backend productivity of Laravel and lightning-fast Vite compilation.
+---
 
-This Vue starter kit utilizes Vue 3 and the Composition API, TypeScript, Tailwind, and the [shadcn-vue](https://www.shadcn-vue.com) component library.
+## About
 
-## Official Documentation
+**Webbib** is a personal link manager built with **Laravel 12** and **Vue 3** (via Inertia.js). It lets you build a personal dashboard of frequently visited websites, organize them into topic folders, and optionally publish collections on a public user page.
 
-Documentation for all Laravel starter kits can be found on the [Laravel website](https://laravel.com/docs/starter-kits).
+---
 
-## Contributing
+## Features
 
-Thank you for considering contributing to our starter kit! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Save links** — Add websites to your personal dashboard for quick access
+- **Topic folders** — Organize links into collections and pin topics to the sidebar
+- **Public & private** — Choose which topics appear on your public user page and which stay private
+- **Customizable profile** — Set a profile picture and personalize your user page
+- **Responsive UI** — Works on desktop and mobile
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Tech Stack
 
-## License
+| Layer | Technology |
+|---|---|
+| Backend | Laravel 12 (PHP) |
+| Frontend | Vue 3 + Inertia.js |
+| Styling | Tailwind CSS |
+| Build | Vite |
 
-The Laravel + Vue starter kit is open-sourced software licensed under the MIT license.
+---
+
+## Getting Started
+
+### Requirements
+
+- PHP 8.2+
+- Composer
+- Node.js 20+
+- A database supported by Laravel (MySQL, PostgreSQL, SQLite)
+
+---
+
+## Links
+
+- [webbib.net](https://www.webbib.net)
+
