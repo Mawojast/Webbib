@@ -15,7 +15,7 @@
         "kalnoy/nestedset": "^6.0.8",
         "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1",
+        "laravel/tinker": "^3.0",
         "laravel/wayfinder": "^0.1.9",
         "league/flysystem-aws-s3-v3": "^3.30"
     },
