@@ -26,7 +26,7 @@
 
 | Layer | Technology |
 |---|---|
-| Backend | Laravel 12 (PHP) |
+| Backend | Laravel 13 (PHP) |
 | Frontend | Vue 3 + Inertia.js |
 | Styling | Tailwind CSS |
 | Build | Vite |
@@ -35,7 +35,7 @@
 
 ### Requirements
 
-- PHP 8.2+
+- PHP 8.3+
 - Composer
 - Node.js 20+
 - A database supported by Laravel (MySQL, PostgreSQL, SQLite)
